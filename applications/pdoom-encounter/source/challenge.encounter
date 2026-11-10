@@ -1,0 +1,230 @@
+process-module "temple/surface-process-module/1"
+profile "usewords/process/1"
+
+process pd.starters:
+  let result = list(
+    { id = "YM-090"; title = "The off switch"; brief = "Fix the action set and value of continuation. Can changing the cost of blocking, or making interruption informative, reverse the incentive?" },
+    { id = "YM-143"; title = "The passing grade"; brief = "Construct two policies that agree on the evaluation record. Cross the cue with the consequence and state which new observation would tell them apart." },
+    { id = "YM-192"; title = "The leverage gap"; brief = "Pick one material or institutional bottleneck. Specify what cognitive advantage changes and which permission, resource or recovery path survives it." },
+    { id = "YM-204"; title = "The last link"; brief = "Name a single jointly feasible history. Include a surviving-population or recovery case that would defeat the specific route you test." },
+    { id = "YM-235"; title = "The 90% claim"; brief = "Check what MIRI actually attributes to its leadership. Freeze the source and scenario. A verified attribution and a calibrated probability require different certificates." }
+  )
+
+process pd.checkBoard:
+  assert and(eq($data.dossier.title, "p(doom)"), eq($data.dossier.protocol, "ai-alignment-risk-algebra/1"), eq(count($data.dossier.claims), 240))
+    otherwise "The challenge requires the canonical p(doom) dossier."
+  call pd.starters
+  each $result as trail:
+    port kernel.invoke { query = "pd.inspect"; input = $trail.id } → checked
+  let result = true
+
+process pd.inspect:
+  let found = filter($data.dossier.claims, "claim", eq($claim.id, $eventInput))
+  assert eq(count($found), 1)
+    otherwise "Choose a claim from the canonical board."
+  let claim = at($found, 0)
+  let sources = filter($data.dossier.sources, "source", includes($claim.evidenceRefs, $source.id))
+  let gates = filter($data.dossier.gates, "gate", includes($gate.claimNumbers, $claim.number))
+  let category = at(filter($data.dossier.categories, "category", eq($category.id, $claim.category)), 0)
+  call pd.starters
+  let starter = at(filter($result, "trail", eq($trail.id, $claim.id)), 0)
+  let result = { claim = $claim; sources = $sources; gates = $gates; category = $category; starter = $starter }
+
+process pd.search:
+  port text.trim { value = $eventInput.query } → needle
+  port number.calculate { operation = "lessEqual"; values = list(count($needle), 120) } → bounded
+  assert $bounded
+    otherwise "Search text exceeds 120 characters."
+  port text.split { value = $needle; pattern = "" } → characters
+  fold $characters as character; pattern starts "":
+    yield concat($pattern, if(includes("\\^$.*+?()[]{}|", $character), "\\", ""), $character) → pattern
+  let candidates = filter($data.dossier.claims, "claim", or(eq($eventInput.category, ""), eq($claim.category, $eventInput.category)))
+  let result = $candidates
+  when not(eq($needle, "")):
+    fold $candidates as claim; matches starts list():
+      port text.match { value = concat($claim.id, " ", $claim.statement); pattern = $pattern; flags = "i" } → hit
+      yield if($hit, append($matches, list($claim)), $matches) → matches
+    let result = $matches
+
+process pd.fields:
+  let result = list(
+    { id = "approach"; initial = "prove" },
+    { id = "proposition"; initial = "" },
+    { id = "scope"; initial = "" },
+    { id = "rival"; initial = "" },
+    { id = "test"; initial = "" },
+    { id = "kill"; initial = "" },
+    { id = "disposition"; initial = "open" },
+    { id = "result"; initial = "" }
+  )
+
+process pd.pack:
+  let draft = $eventInput.draft
+  port kernel.invoke { query = "pd.inspect"; input = $eventInput.id } → selection
+  assert includes(list("prove", "kill", "discriminate"), $draft.approach)
+    otherwise "Choose a supported approach."
+  assert includes(list("open", "supported-in-scope", "defeated-in-scope", "blocked"), $draft.disposition)
+    otherwise "Choose a supported disposition."
+  fold list("proposition", "scope", "rival", "test", "kill", "result") as field; fields starts { }:
+    let value = at($draft, $field)
+    port value.describe { value = $value } → kind
+    assert eq($kind.type, "string")
+      otherwise "Every worksheet field must be text."
+    port text.trim { value = $value } → trimmed
+    port number.calculate { operation = "lessEqual"; values = list(count($trimmed), 2400) } → bounded
+    assert $bounded
+      otherwise "Worksheet fields are limited to 2,400 characters."
+    assert or(not(eq($trimmed, "")), and(eq($field, "result"), eq($draft.disposition, "open")))
+      otherwise "Complete all required fields. For a result or a blocked trail, include the evidence, limits, or missing input."
+    port record.put { record = $fields; key = $field; value = $trimmed } → fields
+    yield $fields → fields
+  let claim = $selection.claim
+  let result = { protocol = "pdoom/encounter-review-packet/1"; authority = "proposal-only"; claim = { id = $claim.id; statement = $claim.statement; dossierStatus = $claim.status; sourceLine = $claim.sourceLine }; provenance = { dossierPath = $data.dossierPath; dossierSha256 = $data.dossierSha256; attachmentSha256 = $data.dossier.sourceSha256; encounterSha256 = $data.processSha256 }; relatedSources = $selection.sources; relatedGates = map($selection.gates, "gate", $gate.id); approach = $draft.approach; proposedDisposition = $draft.disposition; worksheet = $fields }
+
+process pd.escape:
+  let input = $eventInput
+  call html.escape
+
+process pd.board:
+  port browser.property { ref = "#query"; name = "value" } → query
+  port browser.property { ref = "#category"; name = "value" } → category
+  port kernel.invoke { query = "pd.search"; input = { query = $query; category = $category } } → matches
+  port state.get { key = "pd.active" } → active
+  fold $matches as claim; html starts "":
+    port kernel.invoke { query = "pd.escape"; input = $claim.statement } → statement
+    yield concat($html, "<li><button type=\"button\" data-claim=\"", $claim.id, "\"", if(eq($claim.id, $active), " aria-current=\"true\"", ""), "><span class=\"claim-meta\">", $claim.id, " · ", $claim.status, "</span><span>", $statement, "</span></button></li>") → html
+  port browser.content { ref = "#claims"; html = $html } → _
+  port browser.write { ref = "#matches"; name = "textContent"; value = if(eq(count($matches), 0), "No matches. Try a different search or category.", concat(count($matches), " of ", count($data.dossier.claims), " claims")) } → _
+
+process pd.readDraft:
+  call pd.fields
+  fold $result as field; draft starts { }:
+    port browser.property { ref = concat("#", $field.id); name = "value" } → value
+    port record.put { record = $draft; key = $field.id; value = $value } → draft
+    yield $draft → draft
+  let result = $draft
+
+process pd.pick:
+  let id = at($eventInput.matched.attributes, "data-claim")
+  port kernel.invoke { query = "pd.inspect"; input = $id } → selection
+  port state.get { key = "pd.active" } → previous
+  when $previous:
+    call pd.readDraft
+    port state.set { key = concat("pd.draft.", $previous); value = $result } → _
+  port state.get { key = concat("pd.draft.", $id) } → draft
+  port state.set { key = "pd.active"; value = $id } → _
+  let claim = $selection.claim
+  port browser.write { ref = "#choose"; name = "hidden"; value = true } → _
+  port browser.write { ref = "#active"; name = "hidden"; value = false } → _
+  port browser.write { ref = "#work-title"; name = "textContent"; value = concat("Field notebook · ", $id) } → _
+  port browser.write { ref = "#claim-meta"; name = "textContent"; value = concat($claim.status, " / ", $selection.category.title) } → _
+  port browser.write { ref = "#statement"; name = "textContent"; value = $claim.statement } → _
+  port browser.write { ref = "#assessment"; name = "textContent"; value = $claim.defeatCondition } → _
+  port browser.write { ref = "#brief"; name = "hidden"; value = not($selection.starter) } → _
+  port browser.write { ref = "#brief"; name = "textContent"; value = if($selection.starter, at($selection.starter, "brief"), "") } → _
+  port kernel.invoke { query = "pd.claimReading"; input = $id } → reading
+  port browser.content { ref = "#claim-reading"; html = $reading } → _
+  port kernel.invoke { query = "pd.evidence"; input = $selection } → evidence
+  port browser.content { ref = "#evidence"; html = $evidence } → _
+  call pd.fields
+  each $result as field:
+    let initial = if(eq($field.id, "proposition"), $claim.statement, $field.initial)
+    let value = $initial
+    when $draft:
+      let value = at($draft, $field.id)
+    port browser.write { ref = concat("#", $field.id); name = "value"; value = $value } → _
+  port browser.write { ref = "#export-status"; name = "textContent"; value = "" } → _
+  port browser.write { ref = "#review-draft"; name = "hidden"; value = true } → _
+  call pd.board
+  port browser.focus { ref = "#work-title" } → _
+
+process pd.evidence:
+  fold $eventInput.sources as source; links starts "":
+    port kernel.invoke { query = "pd.escape"; input = $source.title } → title
+    port kernel.invoke { query = "pd.escape"; input = $source.url } → url
+    port kernel.invoke { query = "pd.escape"; input = concat($source.locator, ". ", $source.scope) } → scope
+    yield concat($links, "<li><a href=\"", $url, "\">", $title, " ↗</a><p>", $scope, "</p></li>") → links
+  fold $eventInput.gates as gate; gates starts "":
+    port kernel.invoke { query = "pd.escape"; input = concat($gate.id, " · ", $gate.status) } → label
+    port kernel.invoke { query = "pd.escape"; input = $gate.defeatCondition } → discriminator
+    yield concat($gates, "<li><strong>", $label, "</strong><p>", $discriminator, "</p></li>") → gates
+  let result = concat("<p class=\"claim-meta\">Original reconstruction · line ", $eventInput.claim.sourceLine, "</p>",
+    if(eq($links, ""), "<p>The dossier supplies no primary-source link for this row.</p>", concat("<ul>", $links, "</ul>")),
+    if(eq($gates, ""), "", concat("<h3>Related gates</h3><ul>", $gates, "</ul>")))
+
+process pd.export:
+  port state.get { key = "pd.active" } → id
+  call pd.readDraft
+  port state.set { key = concat("pd.draft.", $id); value = $result } → _
+  try:
+    port kernel.invoke { query = "pd.pack"; input = { id = $id; draft = $result } } → packet
+    port json.stringify { value = $packet; space = 2 } → encoded
+    port download.text { name = concat("p-doom-", $id, ".json"); text = $encoded } → _
+    port browser.write { ref = "#export-status"; name = "textContent"; value = concat("Downloaded the ", $id, " review proposal.") } → _
+  catch error:
+    port browser.write { ref = "#export-status"; name = "textContent"; value = $error.message } → _
+
+process pd.reviewIssue:
+  let packet = $eventInput
+  let w = $packet.worksheet
+  let kind = if(eq($packet.proposedDisposition, "supported-in-scope"), "Proof or support", if(eq($packet.proposedDisposition, "defeated-in-scope"), "Clean kill", if(eq($packet.proposedDisposition, "blocked"), "Blocked trail", "Test plan")))
+  let title = concat("[", $packet.claim.id, "] ", $kind)
+  let body = concat(
+    "**Claim:** ", $packet.claim.id, " · ", $packet.claim.statement, "\n\n",
+    "**Approach:** ", $packet.approach, "\n",
+    "**Proposed disposition:** ", $packet.proposedDisposition, "\n\n",
+    "### Exact proposition\n", $w.proposition, "\n\n",
+    "### Scope and assumptions\n", $w.scope, "\n\n",
+    "### Rival explanation or negative control\n", $w.rival, "\n\n",
+    "### Certificate or replay plan\n", $w.test, "\n\n",
+    "### Kill criterion\n", $w.kill, "\n\n",
+    "### Result, limits, and next step\n", if(eq($w.result, ""), "Open plan for review.", $w.result), "\n\n",
+    "### Source identity\n",
+    "- Dossier status: ", $packet.claim.dossierStatus, "\n",
+    "- Dossier SHA-256: `", $packet.provenance.dossierSha256, "`\n",
+    "- Encounter SHA-256: `", $packet.provenance.encounterSha256, "`\n\n",
+    "Submitted for review via [p(doom)](https://aaron-alderman.github.io/p-doom/)."
+  )
+  port text.utf8Length { value = $body } → bytes
+  port number.calculate { operation = "lessEqual"; values = list($bytes, 2400) } → prefill
+  let result = { title = $title; body = $body; prefill = $prefill }
+
+process pd.prepareReview:
+  port state.get { key = "pd.active" } → id
+  call pd.readDraft
+  port state.set { key = concat("pd.draft.", $id); value = $result } → _
+  port browser.write { ref = "#review-draft"; name = "hidden"; value = true } → _
+  try:
+    port kernel.invoke { query = "pd.pack"; input = { id = $id; draft = $result } } → packet
+    port kernel.invoke { query = "pd.reviewIssue"; input = $packet } → issue
+    port browser.write { ref = "#github-title"; name = "value"; value = $issue.title } → _
+    port browser.write { ref = "#github-body"; name = "value"; value = if($issue.prefill, $issue.body, "") } → _
+    port browser.write { ref = "#review-markdown"; name = "value"; value = $issue.body } → _
+    port browser.write { ref = "#review-help"; name = "textContent"; value = if($issue.prefill, "GitHub will open this draft. Sign in to review, add any supporting files, and post it to the public queue.", "This draft is too long to carry in a link. Copy the issue text below, then paste it into GitHub before posting.") } → _
+    port browser.write { ref = "#export-status"; name = "textContent"; value = "" } → _
+    port browser.write { ref = "#review-draft"; name = "hidden"; value = false } → _
+    port browser.focus { ref = "#review-title" } → _
+  catch error:
+    port browser.write { ref = "#export-status"; name = "textContent"; value = $error.message } → _
+
+process pd.invalidateReview:
+  port browser.write { ref = "#review-draft"; name = "hidden"; value = true } → _
+
+process pd.boot:
+  call pd.bootDispatches
+  call pd.starters
+  fold $result as trail; cards starts "":
+    yield concat($cards, "<button type=\"button\" data-claim=\"", $trail.id, "\"><span class=\"claim-meta\">", $trail.id, "</span><strong>", $trail.title, "</strong><span aria-hidden=\"true\">↗</span></button>") → cards
+  port browser.content { ref = "#starters"; html = $cards } → _
+  fold $data.dossier.categories as category; options starts "<option value=\"\">All categories</option>":
+    port kernel.invoke { query = "pd.escape"; input = $category.title } → title
+    yield concat($options, "<option value=\"", $category.id, "\">", $category.id, " · ", $title, "</option>") → options
+  port browser.content { ref = "#category"; html = $options } → _
+  port browser.on { ref = "#starters"; event = "click"; delegate = "[data-claim]"; query = "pd.pick" } → _
+  port browser.on { ref = "#claims"; event = "click"; delegate = "[data-claim]"; query = "pd.pick" } → _
+  port browser.on { ref = "#query"; event = "input"; query = "pd.board" } → _
+  port browser.on { ref = "#category"; event = "change"; query = "pd.board" } → _
+  port browser.on { ref = "#packet"; event = "submit"; query = "pd.prepareReview"; preventDefault = true } → _
+  port browser.on { ref = "#packet"; event = "input"; query = "pd.invalidateReview" } → _
+  port browser.on { ref = "#download-packet"; event = "click"; query = "pd.export" } → _
+  call pd.board

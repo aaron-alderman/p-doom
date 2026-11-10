@@ -1,0 +1,4 @@
+* text=auto eol=lf
+applications/creator-studio/** -text
+corpus/programmes/ai-alignment-risk/yudkowsky_miri_algebra_v1.json -text
+evidence/sources/ai-alignment-risk/yudkowsky-miri-decomposition.txt -text

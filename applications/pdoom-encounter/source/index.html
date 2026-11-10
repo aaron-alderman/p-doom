@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Pick one claim in the Yudkowsky–MIRI argument. Prove it, test it, or kill it cleanly.">
+  <title>p(doom) · Encounter Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#board">Skip to the claim board</a>
+  <nav class="mast frame" aria-label="Expedition">
+    <a class="mast-mark" href="#top"><span class="signal" aria-hidden="true"></span> Worldwright / Fieldwork</a>
+    <div><a href="#dispatch-room">Dispatches</a><a href="#board">Claim board</a><a href="https://github.com/aaron-alderman/p-doom/issues">Review queue ↗</a></div>
+  </nav>
+  <header class="hero" id="top">
+    <img class="hero-art" src="art/observatory.jpg" alt="" fetchpriority="high">
+    <div class="frame">
+      <p class="eyebrow">Encounter challenge / The observatory</p>
+      <h1>p<span>(</span>doom<span>)</span></h1>
+      <p class="lede">The apocalypse has a dependency graph.</p>
+      <p class="intro">The Yudkowsky–MIRI argument comes with 240 claims. Pick one. Prove it, or kill it cleanly. If you find the exact place the argument stops, bring that back too.</p>
+      <div class="hero-links"><a class="action" href="#dispatch-room">Read the dispatches ↓</a><a href="#board">Go straight to the claims ↗</a></div>
+    </div>
+  </header>
+  <main class="frame">
+    <section id="dispatch-room" class="dispatch-room" aria-labelledby="dispatch-room-title">
+      <p class="eyebrow">From the observatory / 01–03</p>
+      <h2 id="dispatch-room-title">Field dispatches</h2>
+      <p class="muted">Three ways into the argument. Each leaves you with a claim and a test you can actually try.</p>
+      <div id="dispatches" class="dispatch-grid"></div>
+      <article id="reading" class="reading" aria-labelledby="dispatch-title" hidden></article>
+    </section>
+    <section class="starters" aria-labelledby="starter-title">
+      <p class="eyebrow">From reading to fieldwork</p>
+      <h2 id="starter-title">Choose a trail</h2>
+      <div id="starters" class="trail-grid"></div>
+    </section>
+    <div class="workspace">
+      <section id="board" class="panel" aria-labelledby="board-title">
+        <p class="eyebrow">01 / Select</p>
+        <h2 id="board-title">Claim board</h2>
+        <div class="filters">
+          <label for="query">Search claims</label>
+          <input id="query" type="search" placeholder="YM-090, shutdown, extinction…" maxlength="120">
+          <label for="category">Category</label>
+          <select id="category"><option value="">All categories</option></select>
+        </div>
+        <p id="matches" class="muted" role="status">Opening the board…</p>
+        <ul id="claims" class="claim-list" aria-label="Matching claims"></ul>
+      </section>
+      <section class="panel work" aria-labelledby="work-title">
+        <p class="eyebrow">02 / Investigate</p>
+        <h2 id="work-title" tabindex="-1">Field notebook</h2>
+        <p id="choose" class="empty">Choose a claim from the board or pick one of the starter trails. Each opens its source, scope, and a worksheet.</p>
+        <div id="active" hidden>
+          <p id="claim-meta" class="claim-meta"></p>
+          <blockquote id="statement"></blockquote>
+          <p id="assessment"></p>
+          <p id="brief" class="callout" hidden></p>
+          <div id="claim-reading"></div>
+          <details><summary>Primary sources and related gates</summary><div id="evidence"></div><p><a href="dossier.json">Inspect the source register ↗</a></p></details>
+          <hr>
+          <p class="eyebrow">03 / Return a packet</p>
+          <h3>What would settle this?</h3>
+          <p class="muted">A single counterexample can defeat a universal claim. To defeat a possibility claim, delimit the model and rule out its permitted cases. A forecast needs a horizon, regime, and uncertainty rule.</p>
+          <form id="packet">
+            <label for="approach">Approach</label>
+            <select id="approach"><option value="prove">Prove or support</option><option value="kill">Kill or narrow</option><option value="discriminate">Distinguish rival explanations</option></select>
+            <label for="proposition">Exact proposition to test</label>
+            <textarea id="proposition" required maxlength="2400" rows="3"></textarea>
+            <label for="scope">Scope and assumptions</label>
+            <textarea id="scope" required maxlength="2400" rows="2" placeholder="Model, population, horizon, permissions, or prerequisite claims"></textarea>
+            <label for="rival">Rival explanation or negative control</label>
+            <textarea id="rival" required maxlength="2400" rows="2" placeholder="What else would produce the same record?"></textarea>
+            <label for="test">Certificate or replay plan</label>
+            <textarea id="test" required maxlength="2400" rows="2" placeholder="Proof, source locator, command, or frozen experimental design"></textarea>
+            <label for="kill">Kill criterion</label>
+            <textarea id="kill" required maxlength="2400" rows="2" placeholder="What observation or derivation would defeat your proposition at this scope?"></textarea>
+            <label for="disposition">Proposed disposition</label>
+            <select id="disposition"><option value="open">Open · plan for review</option><option value="supported-in-scope">Supported within scope</option><option value="defeated-in-scope">Defeated within scope</option><option value="blocked">Blocked on a named input</option></select>
+            <label for="result">Result, limits, and next interface</label>
+            <textarea id="result" maxlength="2400" rows="2" placeholder="Include evidence and replay output for a result, or the exact missing input if blocked"></textarea>
+            <div class="review-actions">
+              <button class="action" type="submit">Prepare public submission →</button>
+              <button id="download-packet" class="text-action" type="button">Download review packet ↓</button>
+            </div>
+            <p id="export-status" role="status"></p>
+            <p class="muted">Drafts stay in this tab until refresh. Submitted packets enter public review.</p>
+          </form>
+          <section id="review-draft" aria-labelledby="review-title" hidden>
+            <h3 id="review-title" tabindex="-1">Review your public draft</h3>
+            <p id="review-help" class="muted"></p>
+            <label for="review-markdown">Issue text</label>
+            <textarea id="review-markdown" rows="11" readonly></textarea>
+            <form id="github-review" action="https://github.com/aaron-alderman/p-doom/issues/new" method="get" target="_blank" rel="noopener">
+              <input id="github-title" type="hidden" name="title">
+              <input id="github-body" type="hidden" name="body">
+              <button class="action" type="submit">Continue to GitHub ↗</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </div>
+    <p data-temple-errors role="alert"></p>
+    <noscript><p>The claim picker and worksheet use the Encounter browser runtime. The <a href="dossier.json">source register</a> is also available directly.</p></noscript>
+  </main>
+  <footer class="frame">p(doom) · A Worldwright expedition built in Encounter. <a href="https://github.com/aaron-alderman/halloween-monster-hunt/blob/main/FOR_AGENTS.md">Halloween Monster Hunt field guide ↗</a></footer>
+</body>
+</html>

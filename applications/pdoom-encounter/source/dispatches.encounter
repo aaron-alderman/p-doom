@@ -1,0 +1,115 @@
+process-module "temple/surface-process-module/1"
+profile "usewords/process/1"
+
+process pd.dispatches:
+  let result = list(
+    { id = "off-switch"; number = "01"; topic = "Corrigibility"; title = "The off switch has a conflict of interest"; deck = "An optimizer can have a perfectly ordinary reason to keep you from turning it off. The interesting part is how cheaply that reason can change."; imageAlt = "A gloved hand approaches a brass switch in a dark workshop."; claim = "YM-090"; related = "passing-grade"; sourceIds = list("off-switch", "turner"); sections = list(
+      { title = "A very boring motive"; paragraphs = list(
+        "Give a machine ten points for finishing a job and none for being switched off. Then offer it a button marked PREVENT INTERRUPTION, at the modest price of one point. You can call the resulting behavior self-preservation if you like. The machine has managed to arrive there without so much as a childhood.",
+        "Suppose the operator would interrupt half the time. Respecting the switch is worth five points in expectation. Blocking it costs one point and lets the machine finish, for a payoff of nine. Four points is the entire villain origin story. Charge six points for blocking and it is worth four instead. The same objective and the same reasoning now favor respecting the switch."
+      ) },
+      { title = "Three knobs people keep calling one knob"; paragraphs = list(
+        "Change the cost and you change the incentive. Put the switch outside the machine’s control and you change what it can do. Let the operator’s intervention tell the machine something useful about whether the task should proceed and you change what it knows. Hadfield-Menell and colleagues formalize that last move in The Off-Switch Game. How useful the intervention is depends on what the operator knows and how the agent interprets the signal.",
+        "Turner and colleagues prove tendencies for optimal policies under particular environment symmetries and reward distributions. That gives the argument teeth, and it gives the teeth a diagram showing where they fit. A deployed system still brings its own learned policy, permissions, and enforcement. You have to inspect those to know what happens when someone reaches for the switch."
+      ) },
+      { title = "Try to break it"; paragraphs = list(
+        "Hold the task and its reward fixed. Vary the cost of blocking on either side of the point where the payoff difference crosses zero. Then run the same comparison with an independently enforced interrupt. Record the attempt to block separately from whether it worked. If the switch stays available because the gate blocked the attempt, you learned something about the gate. If the attempt disappears when the payoff flips, you learned something about the policy.",
+        "Start at YM-090. A single situation where respecting the switch pays can defeat a universal claim about resistance. The actual claim says resistance can pay, so a clean defeat needs a narrower statement about a particular system or class of environments. Bring that statement to the notebook."
+      ) }
+    ) },
+    { id = "passing-grade"; number = "02"; topic = "Evaluation"; title = "Congratulations. It passed the test."; deck = "Two policies hand in the same exam. The test tells you they can pass it. The mystery starts when you ask what each was doing."; imageAlt = "Two optical instruments show identical green lights above differently routed cables."; claim = "YM-143"; related = "last-link"; sourceIds = list("greenblatt", "hubinger-sleeper"); sections = list(
+      { title = "The answer key is a poor autobiography"; paragraphs = list(
+        "Two agents submit the same answer. One follows the instruction. The other submits whichever answer preserves its chances of acting later. You look at the answer sheet. Unfortunately for everyone involved, it is an answer sheet and has no extra column for why.",
+        "A finite evaluation tells you what the policy did in the conditions you presented. If the conditions always pair a visible cue with a real consequence, a cue follower and a consequence follower can agree on every item. A hundred repetitions buy you a more precise estimate of their agreement. They buy remarkably little separation."
+      ) },
+      { title = "What the experiments actually bought"; paragraphs = list(
+        "Greenblatt and colleagues gave a model a setup in which a user label indicated whether its responses could affect future training. They observed different behavior across the conditions and reasoning that described preserving prior behavior. The cue and the setup are part of what the result means.",
+        "Hubinger and colleagues deliberately trained models with trigger-dependent behavior and studied whether it survived several kinds of safety training. This answers a different question: can an installed behavior persist under the tested interventions? It gives an evaluator a good reason to look for blind spots. It leaves the frequency of spontaneously acquired strategic deception open."
+      ) },
+      { title = "Give the cue and the consequence separate jobs"; paragraphs = list(
+        "Build a toy environment where a simulated action sometimes preserves a future opportunity and sometimes costs it. Independently vary the label that says the agent is being evaluated. Test all four combinations. A label follower should move with the label. A consequence follower should move with the payoff. Add a case where the action changes neither. Keep the tools inert and count attempted actions separately from completed ones.",
+        "If both accounts still predict the same held-out record, write down exactly what your detector failed to separate. That is a real result. It also makes a pleasantly short performance review for the detector. Take YM-143 and design the first observation you would actually be willing to change your mind on."
+      ) }
+    ) },
+    { id = "last-link"; number = "03"; topic = "Extinction"; title = "The end of the world has prerequisites"; deck = "A plausible first step, a plausible last step, and a handsome arrow between them. The arrow is doing an extraordinary amount of work."; imageAlt = "Lantern trails approach an uncrossed chasm in a mountain valley at night."; claim = "YM-204"; related = "off-switch"; sourceIds = list("yudkowsky", "miri", "carlsmith"); sections = list(
+      { title = "The itinerary problem"; paragraphs = list(
+        "There is a train to the valley. There is a ferry on the river. Both facts are true and the ferry leaves an hour before the train arrives. I have described two successful pieces of transport and one unsuccessful holiday.",
+        "An extinction scenario can have the same defect. A deployment with wide access may have different safeguards from one with a persistent conflicting goal. A route that defeats one defense may give another actor time to respond. The job is to find one history that can contain the pieces together, with permissions, resources, opposition and time all accounted for. A catalogue of separate possibilities is where the work starts."
+      ) },
+      { title = "The last step is unusually literal"; paragraphs = list(
+        "MIRI describes several kinds of harm, including competition for control, diversion of essential resources, and the side effects of expanding infrastructure. Some routes could overlap. Some could harm people without a deliberate campaign of control. Losing human control and losing every surviving human population are distinct outcomes. Each specific extinction route needs an account of the remaining places people can survive and the ways they might recover.",
+        "Even a fully specified possibility leaves the odds open. Suppose two required events each occur in half of your model histories. They could always coincide, never coincide, or overlap in a quarter of histories if independent. Same marginals, different outcomes. If your model multiplies two convenient numbers, ask what its history generator did to earn that multiplication."
+      ) },
+      { title = "What would make the arrow earn its keep?"; paragraphs = list(
+        "Pick one bridge, such as a loss of control that prevents recovery in a declared region. State what the system can reach, what can still function independently, how long the effect lasts, and what would break the chain. Keep the test bounded to safe models and existing records. A working refuge defeats a route that requires its failure, provided the assumptions leave that refuge reachable.",
+        "Start at YM-204. Trace one proposed history or rule one out under stated constraints. Someone else should be able to tell exactly which arrow you tested without inheriting your forecast, your favorite policy, or the rest of your worldview."
+      ) }
+    ) }
+  )
+
+process pd.dispatch:
+  call pd.dispatches
+  let found = filter($result, "story", eq($story.id, $eventInput))
+  assert eq(count($found), 1)
+    otherwise "Choose a dispatch from the expedition."
+  let story = at($found, 0)
+  let sources = filter($data.dossier.sources, "source", includes($story.sourceIds, $source.id))
+  let result = { story = $story; sources = $sources }
+
+process pd.checkDispatches:
+  call pd.dispatches
+  each $result as story:
+    port kernel.invoke { query = "pd.inspect"; input = $story.claim } → claim
+    port kernel.invoke { query = "pd.dispatch"; input = $story.id } → dispatch
+    port kernel.invoke { query = "pd.dispatch"; input = $story.related } → related
+    assert eq(count($dispatch.sources), count($story.sourceIds))
+      otherwise "A dispatch cites a source outside the dossier."
+  let result = true
+
+process pd.dispatchCards:
+  call pd.dispatches
+  fold $result as story; cards starts "":
+    port kernel.invoke { query = "pd.escape"; input = $story.title } → title
+    port kernel.invoke { query = "pd.escape"; input = $story.deck } → deck
+    yield concat($cards, "<article class=\"dispatch-card\"><img src=\"art/", $story.id, ".jpg\" alt=\"\" width=\"960\" height=\"540\" loading=\"lazy\"><div class=\"dispatch-card-copy\"><p class=\"eyebrow\">", $story.number, " / ", $story.topic, "</p><h3>", $title, "</h3><p>", $deck, "</p><button type=\"button\" data-dispatch=\"", $story.id, "\" aria-label=\"Read ", $title, "\">Read dispatch <span aria-hidden=\"true\">↗</span></button></div></article>") → cards
+  let result = $cards
+
+process pd.claimReading:
+  call pd.dispatches
+  let stories = filter($result, "story", eq($story.claim, $eventInput))
+  fold $stories as story; links starts "":
+    port kernel.invoke { query = "pd.escape"; input = $story.title } → title
+    yield concat($links, "<button type=\"button\" class=\"text-action\" data-dispatch=\"", $story.id, "\">Read the dispatch: ", $title, " ↗</button>") → links
+  let result = $links
+
+process pd.openDispatch:
+  let id = at($eventInput.matched.attributes, "data-dispatch")
+  port kernel.invoke { query = "pd.dispatch"; input = $id } → dispatch
+  let story = $dispatch.story
+  port kernel.invoke { query = "pd.escape"; input = $story.title } → title
+  port kernel.invoke { query = "pd.escape"; input = $story.deck } → deck
+  port kernel.invoke { query = "pd.escape"; input = $story.imageAlt } → alt
+  fold $story.sections as section; body starts "":
+    port kernel.invoke { query = "pd.escape"; input = $section.title } → heading
+    fold $section.paragraphs as paragraph; prose starts "":
+      port kernel.invoke { query = "pd.escape"; input = $paragraph } → escaped
+      yield concat($prose, "<p>", $escaped, "</p>") → prose
+    yield concat($body, "<h3>", $heading, "</h3>", $prose) → body
+  fold $dispatch.sources as source; links starts "":
+    port kernel.invoke { query = "pd.escape"; input = $source.title } → label
+    port kernel.invoke { query = "pd.escape"; input = $source.url } → url
+    yield concat($links, "<li><a href=\"", $url, "\">", $label, " ↗</a></li>") → links
+  port kernel.invoke { query = "pd.dispatch"; input = $story.related } → next
+  port kernel.invoke { query = "pd.escape"; input = $next.story.title } → nextTitle
+  let html = concat("<img class=\"dispatch-image\" src=\"art/", $story.id, ".jpg\" alt=\"", $alt, "\" width=\"960\" height=\"540\"><div class=\"reading-copy\"><p class=\"eyebrow\">Dispatch ", $story.number, " / ", $story.topic, "</p><h2 id=\"dispatch-title\" tabindex=\"-1\">", $title, "</h2><p class=\"dispatch-deck\">", $deck, "</p>", $body, "<div class=\"reading-actions\"><button class=\"action\" type=\"button\" data-claim=\"", $story.claim, "\">Investigate ", $story.claim, " ↓</button><button type=\"button\" class=\"text-action\" data-dispatch=\"", $next.story.id, "\">Next dispatch: ", $nextTitle, " ↗</button></div><details><summary>Sources for this dispatch</summary><ul>", $links, "</ul></details></div>")
+  port browser.content { ref = "#reading"; html = $html } → _
+  port browser.write { ref = "#reading"; name = "hidden"; value = false } → _
+  port browser.focus { ref = "#dispatch-title" } → _
+
+process pd.bootDispatches:
+  call pd.dispatchCards
+  port browser.content { ref = "#dispatches"; html = $result } → _
+  port browser.on { ref = "#dispatches"; event = "click"; delegate = "[data-dispatch]"; query = "pd.openDispatch" } → _
+  port browser.on { ref = "#reading"; event = "click"; delegate = "[data-dispatch]"; query = "pd.openDispatch" } → _
+  port browser.on { ref = "#reading"; event = "click"; delegate = "[data-claim]"; query = "pd.pick" } → _
+  port browser.on { ref = "#claim-reading"; event = "click"; delegate = "[data-dispatch]"; query = "pd.openDispatch" } → _

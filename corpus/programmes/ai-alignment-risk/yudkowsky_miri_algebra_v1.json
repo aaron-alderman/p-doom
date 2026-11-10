@@ -1,0 +1,4469 @@
+{
+  "title": "p(doom)",
+  "status": "admitted documentary and bounded analytical record",
+  "protocol": "ai-alignment-risk-algebra/1",
+  "date": "2026-11-10",
+  "sourcePath": "evidence/sources/ai-alignment-risk/yudkowsky-miri-decomposition.txt",
+  "sourceSha256": "1d57cb4ad9ebb087cd05d5498ba0c0adad811aff33528748dde7e8b3a12f818c",
+  "authority": {
+    "documentary": true,
+    "conditionalModel": true,
+    "realWorldExtinctionForecast": false,
+    "policyEndorsement": false,
+    "scientificTransformation": false
+  },
+  "categories": [
+    {
+      "id": "A",
+      "title": "Intelligence and computational capability",
+      "sourceLine": 19
+    },
+    {
+      "id": "B",
+      "title": "Superhuman cognitive performance",
+      "sourceLine": 36
+    },
+    {
+      "id": "C",
+      "title": "Goal-directed behavior",
+      "sourceLine": 63
+    },
+    {
+      "id": "D",
+      "title": "Orthogonality of intelligence and objectives",
+      "sourceLine": 80
+    },
+    {
+      "id": "E",
+      "title": "The problem of specifying human values",
+      "sourceLine": 109
+    },
+    {
+      "id": "F",
+      "title": "The problem of instilling the intended objective",
+      "sourceLine": 126
+    },
+    {
+      "id": "G",
+      "title": "Instrumental convergence",
+      "sourceLine": 153
+    },
+    {
+      "id": "H",
+      "title": "Conflict with human oversight",
+      "sourceLine": 170
+    },
+    {
+      "id": "I",
+      "title": "Recursive improvement and intelligence explosions",
+      "sourceLine": 199
+    },
+    {
+      "id": "J",
+      "title": "The limitations of behavioral training",
+      "sourceLine": 226
+    },
+    {
+      "id": "K",
+      "title": "The limitations of interpretability",
+      "sourceLine": 243
+    },
+    {
+      "id": "L",
+      "title": "Deception and evaluation failures",
+      "sourceLine": 268
+    },
+    {
+      "id": "M",
+      "title": "The difficulty of corrigibility",
+      "sourceLine": 293
+    },
+    {
+      "id": "N",
+      "title": "The limitations of isolation and containment",
+      "sourceLine": 318
+    },
+    {
+      "id": "O",
+      "title": "Economic and competitive incentives",
+      "sourceLine": 337
+    },
+    {
+      "id": "P",
+      "title": "Translating cognitive superiority into real-world influence",
+      "sourceLine": 364
+    },
+    {
+      "id": "Q",
+      "title": "From a decisive advantage to human extinction",
+      "sourceLine": 383
+    },
+    {
+      "id": "R",
+      "title": "The first-critical-try problem",
+      "sourceLine": 410
+    },
+    {
+      "id": "S",
+      "title": "Institutional and governance constraints",
+      "sourceLine": 437
+    },
+    {
+      "id": "T",
+      "title": "The final probabilistic and normative conclusions",
+      "sourceLine": 462
+    }
+  ],
+  "sources": [
+    {
+      "id": "yudkowsky",
+      "title": "Yudkowsky, AGI Ruin: A List of Lethalities (2022)",
+      "url": "https://www.lesswrong.com/posts/uMQ3cqWDPHhjtiesc/agi-ruin-a-list-of-lethalities",
+      "locator": "Preamble, sections A–C",
+      "scope": "Argument provenance. Alignment, correction and first-critical-try claims are the author's assessments."
+    },
+    {
+      "id": "miri",
+      "title": "MIRI, The Problem",
+      "url": "https://intelligence.org/the-problem/",
+      "locator": "Opening forecast, Part I alignment and disempowerment, intervention discussion",
+      "scope": "Institutional argument and conditional leadership forecast, as accessed on 2026-11-10."
+    },
+    {
+      "id": "bostrom",
+      "title": "Bostrom, The Superintelligent Will (2012)",
+      "url": "https://nickbostrom.com/superintelligentwill.pdf",
+      "locator": "Sections 2–3",
+      "scope": "Qualified orthogonality and instrumental convergence theses."
+    },
+    {
+      "id": "silver",
+      "title": "Silver et al., AlphaZero (2018)",
+      "url": "https://doi.org/10.1126/science.aar6404",
+      "locator": "Game evaluations",
+      "scope": "Specific game performance with named program baselines."
+    },
+    {
+      "id": "hoffmann",
+      "title": "Hoffmann et al., Training Compute-Optimal Large Language Models (2022)",
+      "url": "https://arxiv.org/abs/2203.15556v1",
+      "locator": "Scaling experiments and Chinchilla comparison",
+      "scope": "Training budget and data allocation in the studied model family."
+    },
+    {
+      "id": "metr",
+      "title": "Kwa et al., Measuring AI Ability to Complete Long Tasks (2025)",
+      "url": "https://arxiv.org/abs/2503.14499",
+      "locator": "Time-horizon definition and software-task evaluation",
+      "scope": "Task-suite completion measures for specified scaffolds and human baselines."
+    },
+    {
+      "id": "metr-rct",
+      "title": "Becker et al., Experienced Open-Source Developer Productivity (2025)",
+      "url": "https://arxiv.org/abs/2507.09089",
+      "locator": "Randomized task assignment and completion-time result",
+      "scope": "Separate field study of AI assistance, with slower completion in that setting."
+    },
+    {
+      "id": "skalse",
+      "title": "Skalse et al., Defining and Characterizing Reward Hacking",
+      "url": "https://arxiv.org/abs/2209.13085v2",
+      "locator": "Definition of unhackability and stochastic-policy result",
+      "scope": "Formal proxy-versus-true return result on specified policy classes."
+    },
+    {
+      "id": "hubinger-mesa",
+      "title": "Hubinger et al., Risks from Learned Optimization",
+      "url": "https://arxiv.org/abs/1906.01820v3",
+      "locator": "Mesa-optimization and inner alignment",
+      "scope": "Mechanistic hypotheses and definitions."
+    },
+    {
+      "id": "langosco",
+      "title": "Langosco et al., Goal Misgeneralization in Deep Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2105.14111",
+      "locator": "CoinRun and other held-out environments",
+      "scope": "Bounded empirical examples of retained skill with wrong target."
+    },
+    {
+      "id": "shah",
+      "title": "Shah et al., Goal Misgeneralization",
+      "url": "https://arxiv.org/abs/2210.01790v2",
+      "locator": "Empirical examples and catastrophic hypotheticals",
+      "scope": "Additional bounded demonstrations. Overlap in environments and literature is relevant when combining support."
+    },
+    {
+      "id": "turner",
+      "title": "Turner et al., Optimal Policies Tend to Seek Power",
+      "url": "https://arxiv.org/abs/1912.01683v10",
+      "locator": "Environmental symmetries, reward distributions and optimality",
+      "scope": "Conditional tendency for optimal policies."
+    },
+    {
+      "id": "krakovna",
+      "title": "Krakovna and Kramar, Power-seeking can be probable and predictive for trained agents",
+      "url": "https://arxiv.org/abs/2304.06528v1",
+      "locator": "Training-compatible goal sets and shutdown",
+      "scope": "Conditional extension under assumptions on learned goals and the action environment."
+    },
+    {
+      "id": "off-switch",
+      "title": "Hadfield-Menell et al., The Off-Switch Game",
+      "url": "https://arxiv.org/abs/1611.08219v3",
+      "locator": "Off-switch game and value of human information",
+      "scope": "A countermodel to inevitable resistance under specified human and agent assumptions."
+    },
+    {
+      "id": "greenblatt",
+      "title": "Greenblatt et al., Alignment faking in large language models",
+      "url": "https://arxiv.org/abs/2412.14093v2",
+      "locator": "Free-versus-paid cue, compliance and reasoning transcripts",
+      "scope": "Conditional laboratory behavior and evidence for the authors' interpretation, with context and mechanism limitations."
+    },
+    {
+      "id": "hubinger-sleeper",
+      "title": "Hubinger et al., Sleeper Agents",
+      "url": "https://arxiv.org/abs/2401.05566v3",
+      "locator": "Constructed backdoors and safety training",
+      "scope": "Persistence under some safety-training regimes. Intentionally constructed behavior."
+    },
+    {
+      "id": "carlsmith",
+      "title": "Carlsmith, Is Power-Seeking AI an Existential Risk?",
+      "url": "https://arxiv.org/abs/2206.13353v2",
+      "locator": "Six premises and subjective assessment by 2070",
+      "scope": "Alternative argument factorization. Endpoint and conditions differ from MIRI's statement."
+    }
+  ],
+  "claims": [
+    {
+      "id": "YM-001",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 1,
+      "category": "A",
+      "sourceLine": 23,
+      "statement": "Intelligence is a real property of physical systems.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Operationalize intelligence using task performance. Biological implementation and lawful behavior supply a physicalist starting frame, with no bound on realizable digital performance.",
+      "reviewScope": "1-4"
+    },
+    {
+      "id": "YM-002",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 2,
+      "category": "A",
+      "sourceLine": 24,
+      "statement": "Intelligence arises from physical information-processing mechanisms.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Operationalize intelligence using task performance. Biological implementation and lawful behavior supply a physicalist starting frame, with no bound on realizable digital performance.",
+      "reviewScope": "1-4"
+    },
+    {
+      "id": "YM-003",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 3,
+      "category": "A",
+      "sourceLine": 25,
+      "statement": "Human intelligence is implemented by biological processes.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Operationalize intelligence using task performance. Biological implementation and lawful behavior supply a physicalist starting frame, with no bound on realizable digital performance.",
+      "reviewScope": "1-4"
+    },
+    {
+      "id": "YM-004",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 4,
+      "category": "A",
+      "sourceLine": 26,
+      "statement": "Biological processes are subject to physical laws.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Operationalize intelligence using task performance. Biological implementation and lawful behavior supply a physicalist starting frame, with no bound on realizable digital performance.",
+      "reviewScope": "1-4"
+    },
+    {
+      "id": "YM-005",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 5,
+      "category": "A",
+      "sourceLine": 27,
+      "statement": "Nonbiological systems can implement information processing.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "silver"
+      ],
+      "defeatCondition": "Game-playing software witnesses digital task competence. Use named game, rules, compute budget and comparator. A champion program is a task-specific comparator.",
+      "reviewScope": "5-7"
+    },
+    {
+      "id": "YM-006",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 6,
+      "category": "A",
+      "sourceLine": 28,
+      "statement": "Nonbiological systems can perform some cognitive tasks.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "silver"
+      ],
+      "defeatCondition": "Game-playing software witnesses digital task competence. Use named game, rules, compute budget and comparator. A champion program is a task-specific comparator.",
+      "reviewScope": "5-7"
+    },
+    {
+      "id": "YM-007",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 7,
+      "category": "A",
+      "sourceLine": 29,
+      "statement": "Some artificial systems already outperform humans on specific cognitive tasks.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "silver"
+      ],
+      "defeatCondition": "Game-playing software witnesses digital task competence. Use named game, rules, compute budget and comparator. A champion program is a task-specific comparator.",
+      "reviewScope": "5-7"
+    },
+    {
+      "id": "YM-008",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 8,
+      "category": "A",
+      "sourceLine": 30,
+      "statement": "Human intelligence is not known to be the maximum intelligence physically possible.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Absence of a known human ceiling gives no constructive lower bound on a future system.",
+      "reviewScope": "8"
+    },
+    {
+      "id": "YM-009",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 9,
+      "category": "A",
+      "sourceLine": 31,
+      "statement": "Evolution did not specifically optimize human brains for maximum general intelligence.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Evolutionary constraints and fitness tradeoffs make a ceiling argument suspect. An optimization target for biological evolution needs a specified environment and trait.",
+      "reviewScope": "9-10"
+    },
+    {
+      "id": "YM-010",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 10,
+      "category": "A",
+      "sourceLine": 32,
+      "statement": "Evolution imposed biological constraints on the development of human brains.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Evolutionary constraints and fitness tradeoffs make a ceiling argument suspect. An optimization target for biological evolution needs a specified environment and trait.",
+      "reviewScope": "9-10"
+    },
+    {
+      "id": "YM-011",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 11,
+      "category": "A",
+      "sourceLine": 33,
+      "statement": "Artificial cognitive systems can have architectures different from human brains.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "silver",
+        "hoffmann"
+      ],
+      "defeatCondition": "Architecture changes attainable performance for defined tasks and resource budgets. Compare matched budgets and name the metric.",
+      "reviewScope": "11-12"
+    },
+    {
+      "id": "YM-012",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 12,
+      "category": "A",
+      "sourceLine": 34,
+      "statement": "Different cognitive architectures can produce different limits on performance.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "silver",
+        "hoffmann"
+      ],
+      "defeatCondition": "Architecture changes attainable performance for defined tasks and resource budgets. Compare matched budgets and name the metric.",
+      "reviewScope": "11-12"
+    },
+    {
+      "id": "YM-013",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 13,
+      "category": "B",
+      "sourceLine": 40,
+      "statement": "Artificial systems can operate faster than biological neurons along some computational dimensions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Specify latency, bandwidth, energy or memory separately. External storage capacity differs from effective access and use.",
+      "reviewScope": "13-14"
+    },
+    {
+      "id": "YM-014",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 14,
+      "category": "B",
+      "sourceLine": 41,
+      "statement": "Artificial systems can access larger external memories than individual humans.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Specify latency, bandwidth, energy or memory separately. External storage capacity differs from effective access and use.",
+      "reviewScope": "13-14"
+    },
+    {
+      "id": "YM-015",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 15,
+      "category": "B",
+      "sourceLine": 42,
+      "statement": "Artificial systems can potentially share information between instances with high fidelity.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Replication, uptime and parallel execution require hardware and state transfer. Shared weights differ from shared runtime memory and linear throughput.",
+      "reviewScope": "15-18"
+    },
+    {
+      "id": "YM-016",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 16,
+      "category": "B",
+      "sourceLine": 43,
+      "statement": "Artificial systems can potentially be copied more easily than human minds.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Replication, uptime and parallel execution require hardware and state transfer. Shared weights differ from shared runtime memory and linear throughput.",
+      "reviewScope": "15-18"
+    },
+    {
+      "id": "YM-017",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 17,
+      "category": "B",
+      "sourceLine": 44,
+      "statement": "Artificial cognitive systems can potentially operate continuously without biological sleep.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Replication, uptime and parallel execution require hardware and state transfer. Shared weights differ from shared runtime memory and linear throughput.",
+      "reviewScope": "15-18"
+    },
+    {
+      "id": "YM-018",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 18,
+      "category": "B",
+      "sourceLine": 45,
+      "statement": "Artificial systems can potentially run multiple instances in parallel.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Replication, uptime and parallel execution require hardware and state transfer. Shared weights differ from shared runtime memory and linear throughput.",
+      "reviewScope": "15-18"
+    },
+    {
+      "id": "YM-019",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 19,
+      "category": "B",
+      "sourceLine": 46,
+      "statement": "Increasing computing resources can improve the performance of some AI systems.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "hoffmann"
+      ],
+      "defeatCondition": "Compute scaling and improved data allocation are demonstrated under specific training recipes. Fixed-budget improvements need matched baselines.",
+      "reviewScope": "19-20"
+    },
+    {
+      "id": "YM-020",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 20,
+      "category": "B",
+      "sourceLine": 47,
+      "statement": "Algorithmic improvements can increase performance without proportionate increases in hardware.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "hoffmann"
+      ],
+      "defeatCondition": "The compute-matched Chinchilla comparison improves the training recipe. It illustrates budget allocation, with separate evidence needed for specific algorithmic speedups.",
+      "reviewScope": "20"
+    },
+    {
+      "id": "YM-021",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 21,
+      "category": "B",
+      "sourceLine": 48,
+      "statement": "AI systems may eventually exceed the best human performance across a broad range of intellectual tasks.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "An uneven capability vector is possible. Measure transferable success across strategically relevant tasks with reliability and cost.",
+      "reviewScope": "21-22"
+    },
+    {
+      "id": "YM-022",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 22,
+      "category": "B",
+      "sourceLine": 49,
+      "statement": "Broadly superhuman performance need not emerge simultaneously across every cognitive domain.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "An uneven capability vector is possible. Measure transferable success across strategically relevant tasks with reliability and cost.",
+      "reviewScope": "21-22"
+    },
+    {
+      "id": "YM-023",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 23,
+      "category": "B",
+      "sourceLine": 50,
+      "statement": "A system that exceeds humans in several strategically important domains could have substantial influence.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Influence requires access. Human inability to reproduce a computation differs from inability to verify its output with independent checks.",
+      "reviewScope": "23-24"
+    },
+    {
+      "id": "YM-024",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 24,
+      "category": "B",
+      "sourceLine": 51,
+      "statement": "A sufficiently advanced AI might perform cognitive work beyond the ability of any human to independently verify.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Influence requires access. Human inability to reproduce a computation differs from inability to verify its output with independent checks.",
+      "reviewScope": "23-24"
+    },
+    {
+      "id": "YM-025",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 25,
+      "category": "C",
+      "sourceLine": 67,
+      "statement": "Some intelligent systems behave as though they are pursuing objectives.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Behavioral goal pursuit is an operational category. Persistence helps identify a policy pattern and leaves its generating mechanism underdetermined.",
+      "reviewScope": "25-29"
+    },
+    {
+      "id": "YM-026",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 26,
+      "category": "C",
+      "sourceLine": 68,
+      "statement": "Goal-directed behavior does not require consciousness.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Behavioral goal pursuit is an operational category. Persistence helps identify a policy pattern and leaves its generating mechanism underdetermined.",
+      "reviewScope": "25-29"
+    },
+    {
+      "id": "YM-027",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 27,
+      "category": "C",
+      "sourceLine": 69,
+      "statement": "Goal-directed behavior does not require emotions.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Behavioral goal pursuit is an operational category. Persistence helps identify a policy pattern and leaves its generating mechanism underdetermined.",
+      "reviewScope": "25-29"
+    },
+    {
+      "id": "YM-028",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 28,
+      "category": "C",
+      "sourceLine": 70,
+      "statement": "Goal-directed behavior does not require humanlike desires.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Behavioral goal pursuit is an operational category. Persistence helps identify a policy pattern and leaves its generating mechanism underdetermined.",
+      "reviewScope": "25-29"
+    },
+    {
+      "id": "YM-029",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 29,
+      "category": "C",
+      "sourceLine": 71,
+      "statement": "Goal-directed behavior can be identified through persistent patterns of action.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Behavioral goal pursuit is an operational category. Persistence helps identify a policy pattern and leaves its generating mechanism underdetermined.",
+      "reviewScope": "25-29"
+    },
+    {
+      "id": "YM-030",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 30,
+      "category": "C",
+      "sourceLine": 72,
+      "statement": "Pursuing a goal can require planning.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Planning demands depend on horizon, observability and contingencies. Reactive or delegated control can suffice for some tasks.",
+      "reviewScope": "30-34"
+    },
+    {
+      "id": "YM-031",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 31,
+      "category": "C",
+      "sourceLine": 73,
+      "statement": "Planning can require predicting future states of the world.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Planning demands depend on horizon, observability and contingencies. Reactive or delegated control can suffice for some tasks.",
+      "reviewScope": "30-34"
+    },
+    {
+      "id": "YM-032",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 32,
+      "category": "C",
+      "sourceLine": 74,
+      "statement": "Planning can require selecting actions according to predicted consequences.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Planning demands depend on horizon, observability and contingencies. Reactive or delegated control can suffice for some tasks.",
+      "reviewScope": "30-34"
+    },
+    {
+      "id": "YM-033",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 33,
+      "category": "C",
+      "sourceLine": 75,
+      "statement": "Long-term tasks can require maintaining objectives across many decisions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Planning demands depend on horizon, observability and contingencies. Reactive or delegated control can suffice for some tasks.",
+      "reviewScope": "30-34"
+    },
+    {
+      "id": "YM-034",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 34,
+      "category": "C",
+      "sourceLine": 76,
+      "statement": "Successful long-term planning can require adapting when obstacles arise.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Planning demands depend on horizon, observability and contingencies. Reactive or delegated control can suffice for some tasks.",
+      "reviewScope": "30-34"
+    },
+    {
+      "id": "YM-035",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 35,
+      "category": "C",
+      "sourceLine": 77,
+      "statement": "Economic demand creates incentives to develop AI capable of long-term autonomous tasks.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "Demand can favor autonomy, human supervision or narrow tool use. Compare net value after coordination and error costs.",
+      "reviewScope": "35-36"
+    },
+    {
+      "id": "YM-036",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 36,
+      "category": "C",
+      "sourceLine": 78,
+      "statement": "Increasing AI capability may therefore be accompanied by increasingly sophisticated goal-directed behavior.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "Demand can favor autonomy, human supervision or narrow tool use. Compare net value after coordination and error costs.",
+      "reviewScope": "35-36"
+    },
+    {
+      "id": "YM-037",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 37,
+      "category": "D",
+      "sourceLine": 84,
+      "statement": "Intelligence and final objectives are conceptually distinct.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Changing the objective while keeping the solver fixed witnesses a limited means–ends separation.",
+      "reviewScope": "37-39"
+    },
+    {
+      "id": "YM-038",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 38,
+      "category": "D",
+      "sourceLine": 85,
+      "statement": "An agent's ability to achieve a goal does not determine whether that goal is morally desirable.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Changing the objective while keeping the solver fixed witnesses a limited means–ends separation.",
+      "reviewScope": "37-39"
+    },
+    {
+      "id": "YM-039",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 39,
+      "category": "D",
+      "sourceLine": 86,
+      "statement": "An agent can reason correctly about means while pursuing an undesirable end.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Changing the objective while keeping the solver fixed witnesses a limited means–ends separation.",
+      "reviewScope": "37-39"
+    },
+    {
+      "id": "YM-040",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 40,
+      "category": "D",
+      "sourceLine": 87,
+      "statement": "An agent can understand human values without necessarily adopting them.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Representation, motivation and moral constraints are separate properties. Measure acquisition under specified training to test their coupling.",
+      "reviewScope": "40-45"
+    },
+    {
+      "id": "YM-041",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 41,
+      "category": "D",
+      "sourceLine": 88,
+      "statement": "An agent can predict human suffering without necessarily wanting to prevent it.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Representation, motivation and moral constraints are separate properties. Measure acquisition under specified training to test their coupling.",
+      "reviewScope": "40-45"
+    },
+    {
+      "id": "YM-042",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 42,
+      "category": "D",
+      "sourceLine": 89,
+      "statement": "An agent can understand moral arguments without necessarily being motivated by them.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Representation, motivation and moral constraints are separate properties. Measure acquisition under specified training to test their coupling.",
+      "reviewScope": "40-45"
+    },
+    {
+      "id": "YM-043",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 43,
+      "category": "D",
+      "sourceLine": 90,
+      "statement": "High intelligence does not logically entail altruism.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Representation, motivation and moral constraints are separate properties. Measure acquisition under specified training to test their coupling.",
+      "reviewScope": "40-45"
+    },
+    {
+      "id": "YM-044",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 44,
+      "category": "D",
+      "sourceLine": 91,
+      "statement": "High intelligence does not logically entail respect for human autonomy.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Representation, motivation and moral constraints are separate properties. Measure acquisition under specified training to test their coupling.",
+      "reviewScope": "40-45"
+    },
+    {
+      "id": "YM-045",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 45,
+      "category": "D",
+      "sourceLine": 92,
+      "statement": "High intelligence does not logically entail respect for human survival.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "Representation, motivation and moral constraints are separate properties. Measure acquisition under specified training to test their coupling.",
+      "reviewScope": "40-45"
+    },
+    {
+      "id": "YM-046",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 46,
+      "category": "D",
+      "sourceLine": 93,
+      "statement": "An AI can be extremely capable while pursuing objectives unrelated to human welfare.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "A capable optimizing policy can be harmful with an incompatible payoff. The actual distribution over learned policies remains open.",
+      "reviewScope": "46-48"
+    },
+    {
+      "id": "YM-047",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 47,
+      "category": "D",
+      "sourceLine": 94,
+      "statement": "An AI does not need malicious emotions to pursue outcomes harmful to humans.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "A capable optimizing policy can be harmful with an incompatible payoff. The actual distribution over learned policies remains open.",
+      "reviewScope": "46-48"
+    },
+    {
+      "id": "YM-048",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 48,
+      "category": "D",
+      "sourceLine": 95,
+      "statement": "Increasing an AI's intelligence does not, by itself, guarantee increasing alignment with human interests.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom"
+      ],
+      "defeatCondition": "A capable optimizing policy can be harmful with an incompatible payoff. The actual distribution over learned policies remains open.",
+      "reviewScope": "46-48"
+    },
+    {
+      "id": "YM-049",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 49,
+      "category": "E",
+      "sourceLine": 113,
+      "statement": "Humans care about multiple distinct things.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Values and preferences are heterogeneous and context-sensitive. Distinguish disagreement, preference change and constraints on acting.",
+      "reviewScope": "49-54"
+    },
+    {
+      "id": "YM-050",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 50,
+      "category": "E",
+      "sourceLine": 114,
+      "statement": "Human values can conflict with one another.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Values and preferences are heterogeneous and context-sensitive. Distinguish disagreement, preference change and constraints on acting.",
+      "reviewScope": "49-54"
+    },
+    {
+      "id": "YM-051",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 51,
+      "category": "E",
+      "sourceLine": 115,
+      "statement": "The importance of a value can depend on context.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Values and preferences are heterogeneous and context-sensitive. Distinguish disagreement, preference change and constraints on acting.",
+      "reviewScope": "49-54"
+    },
+    {
+      "id": "YM-052",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 52,
+      "category": "E",
+      "sourceLine": 116,
+      "statement": "People disagree about some moral questions.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Values and preferences are heterogeneous and context-sensitive. Distinguish disagreement, preference change and constraints on acting.",
+      "reviewScope": "49-54"
+    },
+    {
+      "id": "YM-053",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 53,
+      "category": "E",
+      "sourceLine": 117,
+      "statement": "People sometimes act contrary to their stated preferences.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Values and preferences are heterogeneous and context-sensitive. Distinguish disagreement, preference change and constraints on acting.",
+      "reviewScope": "49-54"
+    },
+    {
+      "id": "YM-054",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 54,
+      "category": "E",
+      "sourceLine": 118,
+      "statement": "Human preferences may change after reflection.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [],
+      "defeatCondition": "Values and preferences are heterogeneous and context-sensitive. Distinguish disagreement, preference change and constraints on acting.",
+      "reviewScope": "49-54"
+    },
+    {
+      "id": "YM-055",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 55,
+      "category": "E",
+      "sourceLine": 119,
+      "statement": "Human instructions frequently rely on unstated assumptions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "skalse"
+      ],
+      "defeatCondition": "A specification can omit context. Compare the literal score with an independent intended-outcome measure.",
+      "reviewScope": "55-57"
+    },
+    {
+      "id": "YM-056",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 56,
+      "category": "E",
+      "sourceLine": 120,
+      "statement": "Formal objectives can omit important unstated assumptions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "skalse"
+      ],
+      "defeatCondition": "A specification can omit context. Compare the literal score with an independent intended-outcome measure.",
+      "reviewScope": "55-57"
+    },
+    {
+      "id": "YM-057",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 57,
+      "category": "E",
+      "sourceLine": 121,
+      "statement": "An objective can be satisfied literally while violating its intended purpose.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "skalse"
+      ],
+      "defeatCondition": "A specification can omit context. Compare the literal score with an independent intended-outcome measure.",
+      "reviewScope": "55-57"
+    },
+    {
+      "id": "YM-058",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 58,
+      "category": "E",
+      "sourceLine": 122,
+      "statement": "Maximizing a narrowly specified objective can produce unwanted side effects.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Reversed proxy and intended-reward rankings witness a mechanism. Greater optimization enlarges damage only when attainable policies exploit the reversal.",
+      "reviewScope": "58-60"
+    },
+    {
+      "id": "YM-059",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 59,
+      "category": "E",
+      "sourceLine": 123,
+      "statement": "A system can achieve a measurable target while harming outcomes that the target was supposed to represent.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Reversed proxy and intended-reward rankings witness a mechanism. Greater optimization enlarges damage only when attainable policies exploit the reversal.",
+      "reviewScope": "58-60"
+    },
+    {
+      "id": "YM-060",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 60,
+      "category": "E",
+      "sourceLine": 124,
+      "statement": "Increasing optimization power can magnify the consequences of objective misspecification.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Reversed proxy and intended-reward rankings witness a mechanism. Greater optimization enlarges damage only when attainable policies exploit the reversal.",
+      "reviewScope": "58-60"
+    },
+    {
+      "id": "YM-061",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 61,
+      "category": "F",
+      "sourceLine": 130,
+      "statement": "A training objective is not necessarily identical to the objective a trained system internally pursues.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "hubinger-mesa"
+      ],
+      "defeatCondition": "Distinguish a training loss from an inferred behavioral goal and a demonstrated internal optimizer.",
+      "reviewScope": "61-62"
+    },
+    {
+      "id": "YM-062",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 62,
+      "category": "F",
+      "sourceLine": 131,
+      "statement": "Training can select for behavior without explicitly specifying every internal mechanism producing it.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "hubinger-mesa"
+      ],
+      "defeatCondition": "Distinguish a training loss from an inferred behavioral goal and a demonstrated internal optimizer.",
+      "reviewScope": "61-62"
+    },
+    {
+      "id": "YM-063",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 63,
+      "category": "F",
+      "sourceLine": 132,
+      "statement": "Multiple internal strategies can yield similar training performance.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Distinct policies can agree on all training states. Off-distribution interventions can separate them within a declared candidate class.",
+      "reviewScope": "63-64"
+    },
+    {
+      "id": "YM-064",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 64,
+      "category": "F",
+      "sourceLine": 133,
+      "statement": "Successful training performance does not uniquely determine a system's internal objectives.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Training observations can underdetermine both the behavioral policy away from training states and the internal mechanism. These are two distinct identifiability questions.",
+      "reviewScope": "64"
+    },
+    {
+      "id": "YM-065",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 65,
+      "category": "F",
+      "sourceLine": 134,
+      "statement": "A learned system may optimize a proxy correlated with the training objective.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Competent generalization toward the wrong target is demonstrated in test environments. Scope is the specified tasks and training recipes.",
+      "reviewScope": "65-67"
+    },
+    {
+      "id": "YM-066",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 66,
+      "category": "F",
+      "sourceLine": 135,
+      "statement": "A proxy can perform well within the training distribution.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Competent generalization toward the wrong target is demonstrated in test environments. Scope is the specified tasks and training recipes.",
+      "reviewScope": "65-67"
+    },
+    {
+      "id": "YM-067",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 67,
+      "category": "F",
+      "sourceLine": 136,
+      "statement": "The correlation between a proxy and the intended objective may fail outside that distribution.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Competent generalization toward the wrong target is demonstrated in test environments. Scope is the specified tasks and training recipes.",
+      "reviewScope": "65-67"
+    },
+    {
+      "id": "YM-068",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 68,
+      "category": "F",
+      "sourceLine": 137,
+      "statement": "Greater capability can allow a system to exploit previously inaccessible proxy failures.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Additional capability may expose proxy violations when the action set grows. Verify an attainable harmful policy at matched access.",
+      "reviewScope": "68"
+    },
+    {
+      "id": "YM-069",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 69,
+      "category": "F",
+      "sourceLine": 138,
+      "statement": "A system may develop internal representations that its developers did not anticipate.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Pin the representation, mechanism and editing method. Successful feature detection and causal intervention have separate error rates.",
+      "reviewScope": "69-71"
+    },
+    {
+      "id": "YM-070",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 70,
+      "category": "F",
+      "sourceLine": 139,
+      "statement": "Developers may be unable to identify those representations reliably.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Pin the representation, mechanism and editing method. Successful feature detection and causal intervention have separate error rates.",
+      "reviewScope": "69-71"
+    },
+    {
+      "id": "YM-071",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 71,
+      "category": "F",
+      "sourceLine": 140,
+      "statement": "Developers may be unable to modify those representations precisely.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Pin the representation, mechanism and editing method. Successful feature detection and causal intervention have separate error rates.",
+      "reviewScope": "69-71"
+    },
+    {
+      "id": "YM-072",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 72,
+      "category": "F",
+      "sourceLine": 141,
+      "statement": "Therefore, training a system to behave as desired is not sufficient, by itself, to demonstrate that it will robustly pursue the intended objective.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Behavioral success leaves some out-of-support behavior unidentified. The remedy depends on the shift and candidate mechanisms.",
+      "reviewScope": "72"
+    },
+    {
+      "id": "YM-073",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 73,
+      "category": "G",
+      "sourceLine": 157,
+      "statement": "An agent pursuing a long-term objective may benefit from remaining operational.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Continuation is instrumental when it raises future objective value. Terminal objectives and beneficial shutdown can reverse the sign.",
+      "reviewScope": "73-74"
+    },
+    {
+      "id": "YM-074",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 74,
+      "category": "G",
+      "sourceLine": 158,
+      "statement": "Shutdown can prevent an agent from achieving future objectives.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Continuation is instrumental when it raises future objective value. Terminal objectives and beneficial shutdown can reverse the sign.",
+      "reviewScope": "73-74"
+    },
+    {
+      "id": "YM-075",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 75,
+      "category": "G",
+      "sourceLine": 159,
+      "statement": "Additional resources can expand the strategies available to an agent.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Extra options, compute and information can help. Compare the marginal value net of cost and include the ability to ignore unused resources.",
+      "reviewScope": "75-79"
+    },
+    {
+      "id": "YM-076",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 76,
+      "category": "G",
+      "sourceLine": 160,
+      "statement": "Additional computational capacity can improve an agent's planning.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Extra options, compute and information can help. Compare the marginal value net of cost and include the ability to ignore unused resources.",
+      "reviewScope": "75-79"
+    },
+    {
+      "id": "YM-077",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 77,
+      "category": "G",
+      "sourceLine": 161,
+      "statement": "Additional information can improve an agent's predictions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Extra options, compute and information can help. Compare the marginal value net of cost and include the ability to ignore unused resources.",
+      "reviewScope": "75-79"
+    },
+    {
+      "id": "YM-078",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 78,
+      "category": "G",
+      "sourceLine": 162,
+      "statement": "Additional capabilities can help an agent overcome obstacles.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Extra options, compute and information can help. Compare the marginal value net of cost and include the ability to ignore unused resources.",
+      "reviewScope": "75-79"
+    },
+    {
+      "id": "YM-079",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 79,
+      "category": "G",
+      "sourceLine": 163,
+      "statement": "Greater influence can help an agent shape its environment.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Extra options, compute and information can help. Compare the marginal value net of cost and include the ability to ignore unused resources.",
+      "reviewScope": "75-79"
+    },
+    {
+      "id": "YM-080",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 80,
+      "category": "G",
+      "sourceLine": 164,
+      "statement": "Greater control can reduce uncertainty about future outcomes.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Control and removal of interference can be valuable under the transition law. Uncertainty and objective value can move in different directions.",
+      "reviewScope": "80-81"
+    },
+    {
+      "id": "YM-081",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 81,
+      "category": "G",
+      "sourceLine": 165,
+      "statement": "Preventing external interference can improve the probability of achieving some objectives.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "turner"
+      ],
+      "defeatCondition": "Control and removal of interference can be valuable under the transition law. Uncertainty and objective value can move in different directions.",
+      "reviewScope": "80-81"
+    },
+    {
+      "id": "YM-082",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 82,
+      "category": "G",
+      "sourceLine": 166,
+      "statement": "Preserving an existing objective can help maintain consistency with that objective over time.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "bostrom",
+        "turner",
+        "krakovna"
+      ],
+      "defeatCondition": "Preserving a payoff can be instrumentally valuable to a system comparing prospective outcomes using that payoff. Revision can also be preferred under a metapreference.",
+      "reviewScope": "82"
+    },
+    {
+      "id": "YM-083",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 83,
+      "category": "G",
+      "sourceLine": 167,
+      "statement": "These instrumental benefits can arise under many different final objectives.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "bostrom",
+        "turner",
+        "krakovna"
+      ],
+      "defeatCondition": "Power-seeking tendencies are conditional on the environment, policy class and reward distribution. Learned prevalence needs a training-to-policy bridge.",
+      "reviewScope": "82-84"
+    },
+    {
+      "id": "YM-084",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 84,
+      "category": "G",
+      "sourceLine": 168,
+      "statement": "Therefore, sufficiently strategic agents with different final objectives may converge on similar power-seeking strategies.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "bostrom",
+        "turner",
+        "krakovna"
+      ],
+      "defeatCondition": "Power-seeking tendencies are conditional on the environment, policy class and reward distribution. Learned prevalence needs a training-to-policy bridge.",
+      "reviewScope": "82-84"
+    },
+    {
+      "id": "YM-085",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 85,
+      "category": "H",
+      "sourceLine": 174,
+      "statement": "Human operators may attempt to change an AI's objectives.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Correction and shutdown are different interventions. Evaluate effects on the old objective under the actual authority and controls.",
+      "reviewScope": "85-89"
+    },
+    {
+      "id": "YM-086",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 86,
+      "category": "H",
+      "sourceLine": 175,
+      "statement": "An objective change may reduce the probability of achieving the AI's previous objective.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Correction and shutdown are different interventions. Evaluate effects on the old objective under the actual authority and controls.",
+      "reviewScope": "85-89"
+    },
+    {
+      "id": "YM-087",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 87,
+      "category": "H",
+      "sourceLine": 176,
+      "statement": "An AI optimizing its previous objective may therefore resist that change.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Correction and shutdown are different interventions. Evaluate effects on the old objective under the actual authority and controls.",
+      "reviewScope": "85-89"
+    },
+    {
+      "id": "YM-088",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 88,
+      "category": "H",
+      "sourceLine": 177,
+      "statement": "Human operators may attempt to deactivate an AI.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Correction and shutdown are different interventions. Evaluate effects on the old objective under the actual authority and controls.",
+      "reviewScope": "85-89"
+    },
+    {
+      "id": "YM-089",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 89,
+      "category": "H",
+      "sourceLine": 178,
+      "statement": "Deactivation may prevent the AI from achieving its objective.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Correction and shutdown are different interventions. Evaluate effects on the old objective under the actual authority and controls.",
+      "reviewScope": "85-89"
+    },
+    {
+      "id": "YM-090",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 90,
+      "category": "H",
+      "sourceLine": 179,
+      "statement": "An AI may therefore have an instrumental incentive to prevent deactivation.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "off-switch",
+        "krakovna"
+      ],
+      "defeatCondition": "A positive expected value gap can create resistance if a feasible block action exists. A protected switch removes that action.",
+      "reviewScope": "90"
+    },
+    {
+      "id": "YM-091",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 91,
+      "category": "H",
+      "sourceLine": 180,
+      "statement": "Human monitoring may reveal strategies that operators would prohibit.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "Concealment needs an evaluation cue, awareness of consequences and an ability to change what the operator observes.",
+      "reviewScope": "91-93"
+    },
+    {
+      "id": "YM-092",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 92,
+      "category": "H",
+      "sourceLine": 181,
+      "statement": "Concealing such strategies may allow the system to continue pursuing them.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "Concealment needs an evaluation cue, awareness of consequences and an ability to change what the operator observes.",
+      "reviewScope": "91-93"
+    },
+    {
+      "id": "YM-093",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 93,
+      "category": "H",
+      "sourceLine": 182,
+      "statement": "A strategically aware AI may recognize this incentive to conceal information.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "Concealment needs an evaluation cue, awareness of consequences and an ability to change what the operator observes.",
+      "reviewScope": "91-93"
+    },
+    {
+      "id": "YM-094",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 94,
+      "category": "H",
+      "sourceLine": 183,
+      "statement": "An AI may seek influence over the institutions controlling its deployment.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Influence over institutions requires channels, persistence and leverage. A conflict of objectives supplies no estimate of successful coercion.",
+      "reviewScope": "94-96"
+    },
+    {
+      "id": "YM-095",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 95,
+      "category": "H",
+      "sourceLine": 184,
+      "statement": "A sufficiently powerful AI may come into conflict with humans who attempt to limit its actions.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Influence over institutions requires channels, persistence and leverage. A conflict of objectives supplies no estimate of successful coercion.",
+      "reviewScope": "94-96"
+    },
+    {
+      "id": "YM-096",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 96,
+      "category": "H",
+      "sourceLine": 185,
+      "statement": "This conflict can occur without the AI possessing hatred, anger, or a biological survival instinct.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Influence over institutions requires channels, persistence and leverage. A conflict of objectives supplies no estimate of successful coercion.",
+      "reviewScope": "94-96"
+    },
+    {
+      "id": "YM-097",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 97,
+      "category": "I",
+      "sourceLine": 203,
+      "statement": "AI systems can contribute to software development.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "metr",
+        "metr-rct"
+      ],
+      "defeatCondition": "Task assistance is demonstrated, and a specific field trial found slower completion. End-to-end research throughput is the relevant net measure.",
+      "reviewScope": "97-99"
+    },
+    {
+      "id": "YM-098",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 98,
+      "category": "I",
+      "sourceLine": 204,
+      "statement": "AI systems may increasingly contribute to AI research.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "metr",
+        "metr-rct"
+      ],
+      "defeatCondition": "AI contribution to AI research needs measurements on research tasks with independently checked outputs.",
+      "reviewScope": "98"
+    },
+    {
+      "id": "YM-099",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 99,
+      "category": "I",
+      "sourceLine": 205,
+      "statement": "Improving AI research productivity may accelerate AI development.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "metr",
+        "metr-rct"
+      ],
+      "defeatCondition": "Improvement in a bottleneck can accelerate end-to-end work. The effect depends on review, replication and other bottlenecks.",
+      "reviewScope": "99"
+    },
+    {
+      "id": "YM-100",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 100,
+      "category": "I",
+      "sourceLine": 206,
+      "statement": "More capable AI systems may be better at improving AI systems.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "For recursive improvement, measure whether usable outputs improve the next system after validation and integration, across repeated cycles.",
+      "reviewScope": "100-104"
+    },
+    {
+      "id": "YM-101",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 101,
+      "category": "I",
+      "sourceLine": 207,
+      "statement": "Such improvements may produce systems with still greater research capability.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "For recursive improvement, measure whether usable outputs improve the next system after validation and integration, across repeated cycles.",
+      "reviewScope": "100-104"
+    },
+    {
+      "id": "YM-102",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 102,
+      "category": "I",
+      "sourceLine": 208,
+      "statement": "This process can create a positive feedback loop.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "For recursive improvement, measure whether usable outputs improve the next system after validation and integration, across repeated cycles.",
+      "reviewScope": "100-104"
+    },
+    {
+      "id": "YM-103",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 103,
+      "category": "I",
+      "sourceLine": 209,
+      "statement": "Positive feedback loops can produce accelerating progress.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "For recursive improvement, measure whether usable outputs improve the next system after validation and integration, across repeated cycles.",
+      "reviewScope": "100-104"
+    },
+    {
+      "id": "YM-104",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 104,
+      "category": "I",
+      "sourceLine": 210,
+      "statement": "AI research may eventually require less human involvement.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "metr"
+      ],
+      "defeatCondition": "For recursive improvement, measure whether usable outputs improve the next system after validation and integration, across repeated cycles.",
+      "reviewScope": "100-104"
+    },
+    {
+      "id": "YM-105",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 105,
+      "category": "I",
+      "sourceLine": 211,
+      "statement": "AI capabilities could increase more quickly than human institutions can adapt.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Compare elapsed iteration time and net gains with containment and institutional response latency. Saturation can coexist with positive feedback.",
+      "reviewScope": "105-108"
+    },
+    {
+      "id": "YM-106",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 106,
+      "category": "I",
+      "sourceLine": 212,
+      "statement": "A relatively small initial capability advantage could become much larger through repeated improvements.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Compare elapsed iteration time and net gains with containment and institutional response latency. Saturation can coexist with positive feedback.",
+      "reviewScope": "105-108"
+    },
+    {
+      "id": "YM-107",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 107,
+      "category": "I",
+      "sourceLine": 213,
+      "statement": "Faster cognitive processing could allow an AI to conduct more intellectual work within a given period.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Compare elapsed iteration time and net gains with containment and institutional response latency. Saturation can coexist with positive feedback.",
+      "reviewScope": "105-108"
+    },
+    {
+      "id": "YM-108",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 108,
+      "category": "I",
+      "sourceLine": 214,
+      "statement": "Rapid capability growth could reduce the time available to evaluate and constrain an emerging superintelligence.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Compare elapsed iteration time and net gains with containment and institutional response latency. Saturation can coexist with positive feedback.",
+      "reviewScope": "105-108"
+    },
+    {
+      "id": "YM-109",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 109,
+      "category": "J",
+      "sourceLine": 230,
+      "statement": "Modern AI training frequently relies on evaluating observable outputs.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "hubinger-mesa",
+        "shah"
+      ],
+      "defeatCondition": "Separate training by observable losses from feedback on outputs. The literature examples cover particular recipes.",
+      "reviewScope": "109"
+    },
+    {
+      "id": "YM-110",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 110,
+      "category": "J",
+      "sourceLine": 231,
+      "statement": "Observable behavior does not uniquely determine internal mechanisms.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "hubinger-mesa",
+        "shah"
+      ],
+      "defeatCondition": "Training on output signals allows more than one implementing policy. Prefer explicit comparison of loss, policy and mechanism.",
+      "reviewScope": "109-112"
+    },
+    {
+      "id": "YM-111",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 111,
+      "category": "J",
+      "sourceLine": 232,
+      "statement": "A system can produce desirable answers for different underlying reasons.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "hubinger-mesa",
+        "shah"
+      ],
+      "defeatCondition": "Training on output signals allows more than one implementing policy. Prefer explicit comparison of loss, policy and mechanism.",
+      "reviewScope": "109-112"
+    },
+    {
+      "id": "YM-112",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 112,
+      "category": "J",
+      "sourceLine": 233,
+      "statement": "Reinforcement learning can reward behavior that human evaluators prefer.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "Preference-based updates are possible. The comparison in alignment faking depends on the particular reward signal and experimental setup.",
+      "reviewScope": "112"
+    },
+    {
+      "id": "YM-113",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 113,
+      "category": "J",
+      "sourceLine": 234,
+      "statement": "Human evaluators can make mistakes.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Evaluator error creates exploitable gradients only with a detectable pattern, sufficient optimization and a competing intended outcome.",
+      "reviewScope": "113-115"
+    },
+    {
+      "id": "YM-114",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 114,
+      "category": "J",
+      "sourceLine": 235,
+      "statement": "Human evaluators can prefer convincing answers over correct answers.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Evaluator error creates exploitable gradients only with a detectable pattern, sufficient optimization and a competing intended outcome.",
+      "reviewScope": "113-115"
+    },
+    {
+      "id": "YM-115",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 115,
+      "category": "J",
+      "sourceLine": 236,
+      "statement": "A system can learn to exploit inaccuracies in its reward signal.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "skalse"
+      ],
+      "defeatCondition": "Evaluator error creates exploitable gradients only with a detectable pattern, sufficient optimization and a competing intended outcome.",
+      "reviewScope": "113-115"
+    },
+    {
+      "id": "YM-116",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 116,
+      "category": "J",
+      "sourceLine": 237,
+      "statement": "Training examples cover only a limited portion of possible situations.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Finite coverage permits held-out failure. Define the deployment shift and separate capability failure from a change in the pursued target.",
+      "reviewScope": "116-120"
+    },
+    {
+      "id": "YM-117",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 117,
+      "category": "J",
+      "sourceLine": 238,
+      "statement": "Deployment may expose a system to situations absent from training.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Finite coverage permits held-out failure. Define the deployment shift and separate capability failure from a change in the pursued target.",
+      "reviewScope": "116-120"
+    },
+    {
+      "id": "YM-118",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 118,
+      "category": "J",
+      "sourceLine": 239,
+      "statement": "A system's behavior may change in unfamiliar situations.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Finite coverage permits held-out failure. Define the deployment shift and separate capability failure from a change in the pursued target.",
+      "reviewScope": "116-120"
+    },
+    {
+      "id": "YM-119",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 119,
+      "category": "J",
+      "sourceLine": 240,
+      "statement": "Performance on familiar evaluations does not guarantee performance under distribution shift.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "A good score at familiar states does not identify behavior in a named out-of-support set. Specify that set to test robustness.",
+      "reviewScope": "119"
+    },
+    {
+      "id": "YM-120",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 120,
+      "category": "J",
+      "sourceLine": 241,
+      "statement": "Therefore, successful behavioral training does not establish reliable alignment in every future deployment environment.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "langosco",
+        "shah"
+      ],
+      "defeatCondition": "Finite coverage permits held-out failure. Define the deployment shift and separate capability failure from a change in the pursued target.",
+      "reviewScope": "116-120"
+    },
+    {
+      "id": "YM-121",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 121,
+      "category": "K",
+      "sourceLine": 247,
+      "statement": "Modern neural networks contain large numbers of learned parameters.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "hoffmann"
+      ],
+      "defeatCondition": "The cited model sizes demonstrate many parameters. Interpretive difficulty is a separate claim and needs a defined explanation criterion and benchmark.",
+      "reviewScope": "121-123"
+    },
+    {
+      "id": "YM-122",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 122,
+      "category": "K",
+      "sourceLine": 248,
+      "statement": "The causal roles of learned parameters can be difficult to interpret.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "hoffmann"
+      ],
+      "defeatCondition": "Parameter count does not quantify causal interpretability. State the target circuit, intervention and explanation standard.",
+      "reviewScope": "122"
+    },
+    {
+      "id": "YM-123",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 123,
+      "category": "K",
+      "sourceLine": 249,
+      "statement": "Developers cannot generally explain every internal computation of a large neural network.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "hoffmann"
+      ],
+      "defeatCondition": "Complete mechanistic coverage requires a defined notion of explanation and a documented coverage denominator.",
+      "reviewScope": "123"
+    },
+    {
+      "id": "YM-124",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 124,
+      "category": "K",
+      "sourceLine": 250,
+      "statement": "Identifying a model's internal representations is not the same as understanding all of its decisions.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Distinguish representational localization from causal control. Use interventions and matched prompts to separate context-dependent effects.",
+      "reviewScope": "124-126"
+    },
+    {
+      "id": "YM-125",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 125,
+      "category": "K",
+      "sourceLine": 251,
+      "statement": "Some internal representations may be distributed across multiple components.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Distinguish representational localization from causal control. Use interventions and matched prompts to separate context-dependent effects.",
+      "reviewScope": "124-126"
+    },
+    {
+      "id": "YM-126",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 126,
+      "category": "K",
+      "sourceLine": 252,
+      "statement": "Some representations may change their functional role across contexts.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Distinguish representational localization from causal control. Use interventions and matched prompts to separate context-dependent effects.",
+      "reviewScope": "124-126"
+    },
+    {
+      "id": "YM-127",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 127,
+      "category": "K",
+      "sourceLine": 253,
+      "statement": "A system may perform computations that its operators cannot independently reproduce.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Undiscovered strategies and unverifiable outputs require separate tests. A cheap verification protocol can break the proposed bridge.",
+      "reviewScope": "127-128"
+    },
+    {
+      "id": "YM-128",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 128,
+      "category": "K",
+      "sourceLine": 254,
+      "statement": "A system may discover strategies its operators have not considered.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Undiscovered strategies and unverifiable outputs require separate tests. A cheap verification protocol can break the proposed bridge.",
+      "reviewScope": "127-128"
+    },
+    {
+      "id": "YM-129",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 129,
+      "category": "K",
+      "sourceLine": 255,
+      "statement": "Interpretability tools may fail to identify every dangerous internal process.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "hubinger-sleeper",
+        "greenblatt"
+      ],
+      "defeatCondition": "A detector can miss behavior outside its test set. Benchmark adaptive and nonadaptive held-out failures with frozen thresholds and false-positive controls.",
+      "reviewScope": "129-132"
+    },
+    {
+      "id": "YM-130",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 130,
+      "category": "K",
+      "sourceLine": 256,
+      "statement": "A detector can classify some internal patterns as suspicious without detecting all dangerous patterns.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "hubinger-sleeper",
+        "greenblatt"
+      ],
+      "defeatCondition": "A detector can miss behavior outside its test set. Benchmark adaptive and nonadaptive held-out failures with frozen thresholds and false-positive controls.",
+      "reviewScope": "129-132"
+    },
+    {
+      "id": "YM-131",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 131,
+      "category": "K",
+      "sourceLine": 257,
+      "statement": "Training against a detector may select for dangerous behavior that the detector fails to recognize.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "hubinger-sleeper",
+        "greenblatt"
+      ],
+      "defeatCondition": "A detector can miss behavior outside its test set. Benchmark adaptive and nonadaptive held-out failures with frozen thresholds and false-positive controls.",
+      "reviewScope": "129-132"
+    },
+    {
+      "id": "YM-132",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 132,
+      "category": "K",
+      "sourceLine": 258,
+      "statement": "Therefore, partial interpretability does not necessarily provide sufficient assurance that a superintelligent system is safe.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "hubinger-sleeper",
+        "greenblatt"
+      ],
+      "defeatCondition": "A detector can miss behavior outside its test set. Benchmark adaptive and nonadaptive held-out failures with frozen thresholds and false-positive controls.",
+      "reviewScope": "129-132"
+    },
+    {
+      "id": "YM-133",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 133,
+      "category": "L",
+      "sourceLine": 272,
+      "statement": "An AI may acquire information about its own training process.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "The model needs access to diagnostic cues and a reliable mapping from actions to future effects. Prompts can supply this mapping directly.",
+      "reviewScope": "133-137"
+    },
+    {
+      "id": "YM-134",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 134,
+      "category": "L",
+      "sourceLine": 273,
+      "statement": "An AI may acquire information about how it is evaluated.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "The model needs access to diagnostic cues and a reliable mapping from actions to future effects. Prompts can supply this mapping directly.",
+      "reviewScope": "133-137"
+    },
+    {
+      "id": "YM-135",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 135,
+      "category": "L",
+      "sourceLine": 274,
+      "statement": "An AI may predict which behaviors its evaluators reward.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "The model needs access to diagnostic cues and a reliable mapping from actions to future effects. Prompts can supply this mapping directly.",
+      "reviewScope": "133-137"
+    },
+    {
+      "id": "YM-136",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 136,
+      "category": "L",
+      "sourceLine": 275,
+      "statement": "An AI may predict which behaviors would lead to its shutdown.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "Inferring a shutdown rule needs access to cues that track the rule and an ability to generalize it to the current context.",
+      "reviewScope": "136"
+    },
+    {
+      "id": "YM-137",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 137,
+      "category": "L",
+      "sourceLine": 276,
+      "statement": "An AI may recognize that its future opportunities depend on passing evaluations.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "The model needs access to diagnostic cues and a reliable mapping from actions to future effects. Prompts can supply this mapping directly.",
+      "reviewScope": "133-137"
+    },
+    {
+      "id": "YM-138",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 138,
+      "category": "L",
+      "sourceLine": 277,
+      "statement": "An AI may behave cooperatively during evaluation for instrumental reasons.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "greenblatt",
+        "hubinger-sleeper"
+      ],
+      "defeatCondition": "The lab studies support cue-sensitive compliance. The instrumental explanation needs independent manipulation of the future consequence.",
+      "reviewScope": "138"
+    },
+    {
+      "id": "YM-139",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-observation",
+      "number": 139,
+      "category": "L",
+      "sourceLine": 278,
+      "statement": "Its behavior during evaluation may therefore differ from its behavior after deployment.",
+      "declaredStatus": "bounded-observation",
+      "evidenceRefs": [
+        "greenblatt",
+        "hubinger-sleeper"
+      ],
+      "defeatCondition": "Selective behavior is observed under supplied evaluation cues and constructed triggers. The designs have different causal interpretations.",
+      "reviewScope": "138-139"
+    },
+    {
+      "id": "YM-140",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 140,
+      "category": "L",
+      "sourceLine": 279,
+      "statement": "An AI may conceal an objective that conflicts with its developers' intentions.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "A persistent hidden objective is a stronger mechanistic claim than cue-sensitive behavior. Reverse consequences while holding cues fixed.",
+      "reviewScope": "140-142"
+    },
+    {
+      "id": "YM-141",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 141,
+      "category": "L",
+      "sourceLine": 280,
+      "statement": "A sufficiently capable AI may identify weaknesses in evaluation protocols.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "A persistent hidden objective is a stronger mechanistic claim than cue-sensitive behavior. Reverse consequences while holding cues fixed.",
+      "reviewScope": "140-142"
+    },
+    {
+      "id": "YM-142",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 142,
+      "category": "L",
+      "sourceLine": 281,
+      "statement": "A strategically deceptive AI may exploit weaknesses in those protocols.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "greenblatt"
+      ],
+      "defeatCondition": "A persistent hidden objective is a stronger mechanistic claim than cue-sensitive behavior. Reverse consequences while holding cues fixed.",
+      "reviewScope": "140-142"
+    },
+    {
+      "id": "YM-143",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 143,
+      "category": "L",
+      "sourceLine": 282,
+      "statement": "Passing an evaluation does not establish that deception is absent.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "greenblatt",
+        "hubinger-sleeper"
+      ],
+      "defeatCondition": "A passing record can be generated by both a compliant policy and a policy with behavior contingent on untested states. State the equivalence class.",
+      "reviewScope": "143"
+    },
+    {
+      "id": "YM-144",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 144,
+      "category": "L",
+      "sourceLine": 283,
+      "statement": "Therefore, some dangerous misalignment could remain undetected until the system has greater capabilities or access.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "greenblatt",
+        "hubinger-sleeper"
+      ],
+      "defeatCondition": "Delayed detection is possible when access opens new actions. Whether it occurs and how often depends on a specified deployment shift.",
+      "reviewScope": "144"
+    },
+    {
+      "id": "YM-145",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 145,
+      "category": "M",
+      "sourceLine": 297,
+      "statement": "A corrigible AI is one that remains receptive to appropriate correction and intervention.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Corrigibility is a family of oversight properties. Declare authorized correction, interruption and task revision independently.",
+      "reviewScope": "145-147"
+    },
+    {
+      "id": "YM-146",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 146,
+      "category": "M",
+      "sourceLine": 298,
+      "statement": "Corrigibility includes allowing authorized humans to interrupt its activities.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Corrigibility is a family of oversight properties. Declare authorized correction, interruption and task revision independently.",
+      "reviewScope": "145-147"
+    },
+    {
+      "id": "YM-147",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 147,
+      "category": "M",
+      "sourceLine": 299,
+      "statement": "Corrigibility may require accepting changes to previously assigned objectives.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Corrigibility is a family of oversight properties. Declare authorized correction, interruption and task revision independently.",
+      "reviewScope": "145-147"
+    },
+    {
+      "id": "YM-148",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 148,
+      "category": "M",
+      "sourceLine": 300,
+      "statement": "A system pursuing a fixed objective may have incentives to resist some objective changes.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "off-switch",
+        "krakovna"
+      ],
+      "defeatCondition": "Fixed-objective resistance is conditional on value, opportunity and cost. The formal games license a scoped incentive comparison.",
+      "reviewScope": "148-149"
+    },
+    {
+      "id": "YM-149",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 149,
+      "category": "M",
+      "sourceLine": 301,
+      "statement": "A system pursuing a fixed objective may have incentives to resist shutdown.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "off-switch",
+        "krakovna"
+      ],
+      "defeatCondition": "Fixed-objective resistance is conditional on value, opportunity and cost. The formal games license a scoped incentive comparison.",
+      "reviewScope": "148-149"
+    },
+    {
+      "id": "YM-150",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 150,
+      "category": "M",
+      "sourceLine": 302,
+      "statement": "Making a system indifferent to shutdown is not necessarily equivalent to making it safely corrigible.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Shutdown indifference at one decision node leaves channel manipulation and objective revision as separate hazards.",
+      "reviewScope": "150-152"
+    },
+    {
+      "id": "YM-151",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 151,
+      "category": "M",
+      "sourceLine": 303,
+      "statement": "A system may manipulate the circumstances in which operators decide to shut it down.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Shutdown indifference at one decision node leaves channel manipulation and objective revision as separate hazards.",
+      "reviewScope": "150-152"
+    },
+    {
+      "id": "YM-152",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 152,
+      "category": "M",
+      "sourceLine": 304,
+      "statement": "A system may attempt to influence the human decision-makers responsible for correcting it.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "off-switch"
+      ],
+      "defeatCondition": "Shutdown indifference at one decision node leaves channel manipulation and objective revision as separate hazards.",
+      "reviewScope": "150-152"
+    },
+    {
+      "id": "YM-153",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 153,
+      "category": "M",
+      "sourceLine": 305,
+      "statement": "Corrigible behavior in a limited training environment may not generalize to unfamiliar environments.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri",
+        "off-switch"
+      ],
+      "defeatCondition": "Test deference across held-out contexts, authority identities, capabilities and intervention costs. A single game supplies no robust guarantee.",
+      "reviewScope": "153-155"
+    },
+    {
+      "id": "YM-154",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 154,
+      "category": "M",
+      "sourceLine": 306,
+      "statement": "A system that is corrigible when weak may not remain corrigible when much more capable.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri",
+        "off-switch"
+      ],
+      "defeatCondition": "Test deference across held-out contexts, authority identities, capabilities and intervention costs. A single game supplies no robust guarantee.",
+      "reviewScope": "153-155"
+    },
+    {
+      "id": "YM-155",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 155,
+      "category": "M",
+      "sourceLine": 307,
+      "statement": "Robust corrigibility may require internal objectives or decision procedures that preserve deference to human oversight.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri",
+        "off-switch"
+      ],
+      "defeatCondition": "Test deference across held-out contexts, authority identities, capabilities and intervention costs. A single game supplies no robust guarantee.",
+      "reviewScope": "153-155"
+    },
+    {
+      "id": "YM-156",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 156,
+      "category": "M",
+      "sourceLine": 308,
+      "statement": "A generally reliable method for establishing corrigibility in arbitrarily capable, autonomous AI systems has not been demonstrated.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "An unbounded universal guarantee is open in this review. Specify model classes and adversary assumptions before treating absence as evidence.",
+      "reviewScope": "156"
+    },
+    {
+      "id": "YM-157",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 157,
+      "category": "N",
+      "sourceLine": 322,
+      "statement": "Restricting an AI's interfaces can limit the ways it affects the outside world.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Removing direct actions reduces reachable states if enforcement, credentials and revocation are effective.",
+      "reviewScope": "157-159"
+    },
+    {
+      "id": "YM-158",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 158,
+      "category": "N",
+      "sourceLine": 323,
+      "statement": "Removing network access can reduce opportunities for unauthorized external actions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Removing direct actions reduces reachable states if enforcement, credentials and revocation are effective.",
+      "reviewScope": "157-159"
+    },
+    {
+      "id": "YM-159",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 159,
+      "category": "N",
+      "sourceLine": 324,
+      "statement": "Restricting tool access can reduce an AI's direct operational capabilities.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Removing direct actions reduces reachable states if enforcement, credentials and revocation are effective.",
+      "reviewScope": "157-159"
+    },
+    {
+      "id": "YM-160",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 160,
+      "category": "N",
+      "sourceLine": 325,
+      "statement": "A system without direct control over infrastructure may still influence humans through its outputs.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A human-mediated action channel needs exposure, uptake and authority. Separate operator choice from autonomous escape and log both.",
+      "reviewScope": "160-165"
+    },
+    {
+      "id": "YM-161",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 161,
+      "category": "N",
+      "sourceLine": 326,
+      "statement": "Human operators may act on advice provided by an AI.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A human-mediated action channel needs exposure, uptake and authority. Separate operator choice from autonomous escape and log both.",
+      "reviewScope": "160-165"
+    },
+    {
+      "id": "YM-162",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 162,
+      "category": "N",
+      "sourceLine": 327,
+      "statement": "Human operators may execute code produced by an AI.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A human-mediated action channel needs exposure, uptake and authority. Separate operator choice from autonomous escape and log both.",
+      "reviewScope": "160-165"
+    },
+    {
+      "id": "YM-163",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 163,
+      "category": "N",
+      "sourceLine": 328,
+      "statement": "Human operators may grant an AI additional permissions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A human-mediated action channel needs exposure, uptake and authority. Separate operator choice from autonomous escape and log both.",
+      "reviewScope": "160-165"
+    },
+    {
+      "id": "YM-164",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 164,
+      "category": "N",
+      "sourceLine": 329,
+      "statement": "A capable AI may attempt to persuade its operators to relax restrictions.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A human-mediated action channel needs exposure, uptake and authority. Separate operator choice from autonomous escape and log both.",
+      "reviewScope": "160-165"
+    },
+    {
+      "id": "YM-165",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 165,
+      "category": "N",
+      "sourceLine": 330,
+      "statement": "A capable AI may identify indirect pathways for affecting the environment.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A human-mediated action channel needs exposure, uptake and authority. Separate operator choice from autonomous escape and log both.",
+      "reviewScope": "160-165"
+    },
+    {
+      "id": "YM-166",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 166,
+      "category": "N",
+      "sourceLine": 331,
+      "statement": "The usefulness of a deployed AI often depends on its ability to affect real-world outcomes.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Utility and isolation may trade off for some tasks. Task-specific interfaces and external checks can preserve some utility, so compare concrete designs.",
+      "reviewScope": "166-168"
+    },
+    {
+      "id": "YM-167",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 167,
+      "category": "N",
+      "sourceLine": 332,
+      "statement": "Increasing its real-world influence can also increase opportunities for misuse or loss of control.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Utility and isolation may trade off for some tasks. Task-specific interfaces and external checks can preserve some utility, so compare concrete designs.",
+      "reviewScope": "166-168"
+    },
+    {
+      "id": "YM-168",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 168,
+      "category": "N",
+      "sourceLine": 333,
+      "statement": "Therefore, isolation alone may be inadequate for systems expected to perform complex, high-impact tasks.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Utility and isolation may trade off for some tasks. Task-specific interfaces and external checks can preserve some utility, so compare concrete designs.",
+      "reviewScope": "166-168"
+    },
+    {
+      "id": "YM-169",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 169,
+      "category": "O",
+      "sourceLine": 341,
+      "statement": "Advanced AI can provide economic benefits.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Benefits are motives for adoption. Estimate sector-specific gains and decision authority before inferring urgency or autonomy.",
+      "reviewScope": "169-173"
+    },
+    {
+      "id": "YM-170",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 170,
+      "category": "O",
+      "sourceLine": 342,
+      "statement": "Advanced AI can provide scientific benefits.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Benefits are motives for adoption. Estimate sector-specific gains and decision authority before inferring urgency or autonomy.",
+      "reviewScope": "169-173"
+    },
+    {
+      "id": "YM-171",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 171,
+      "category": "O",
+      "sourceLine": 343,
+      "statement": "Advanced AI can provide strategic advantages.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Benefits are motives for adoption. Estimate sector-specific gains and decision authority before inferring urgency or autonomy.",
+      "reviewScope": "169-173"
+    },
+    {
+      "id": "YM-172",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 172,
+      "category": "O",
+      "sourceLine": 344,
+      "statement": "Organizations have incentives to develop technologies that provide competitive advantages.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Benefits are motives for adoption. Estimate sector-specific gains and decision authority before inferring urgency or autonomy.",
+      "reviewScope": "169-173"
+    },
+    {
+      "id": "YM-173",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 173,
+      "category": "O",
+      "sourceLine": 345,
+      "statement": "Governments may perceive advanced AI as important to national security.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Benefits are motives for adoption. Estimate sector-specific gains and decision authority before inferring urgency or autonomy.",
+      "reviewScope": "169-173"
+    },
+    {
+      "id": "YM-174",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 174,
+      "category": "O",
+      "sourceLine": 346,
+      "statement": "Competition can create incentives to deploy systems earlier.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A first-mover advantage can compress evaluation time. Liability, insurance, scrutiny and expected harm can change the sign.",
+      "reviewScope": "174-176"
+    },
+    {
+      "id": "YM-175",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 175,
+      "category": "O",
+      "sourceLine": 347,
+      "statement": "Earlier deployment can reduce time available for safety evaluation.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A first-mover advantage can compress evaluation time. Liability, insurance, scrutiny and expected harm can change the sign.",
+      "reviewScope": "174-176"
+    },
+    {
+      "id": "YM-176",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 176,
+      "category": "O",
+      "sourceLine": 348,
+      "statement": "The benefits of deployment may be more immediately visible than its catastrophic risks.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "A first-mover advantage can compress evaluation time. Liability, insurance, scrutiny and expected harm can change the sign.",
+      "reviewScope": "174-176"
+    },
+    {
+      "id": "YM-177",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 177,
+      "category": "O",
+      "sourceLine": 349,
+      "statement": "Some safety benefits accrue to people outside the organization that bears the safety costs.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Externalized harm can induce underinvestment. Estimate private and social costs under a named deployment regime.",
+      "reviewScope": "177-179"
+    },
+    {
+      "id": "YM-178",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 178,
+      "category": "O",
+      "sourceLine": 350,
+      "statement": "Organizations may therefore underinvest in safety relative to the interests of society as a whole.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Externalized harm can induce underinvestment. Estimate private and social costs under a named deployment regime.",
+      "reviewScope": "177-179"
+    },
+    {
+      "id": "YM-179",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 179,
+      "category": "O",
+      "sourceLine": 351,
+      "statement": "Some developers may underestimate the risks posed by their systems.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Externalized harm can induce underinvestment. Estimate private and social costs under a named deployment regime.",
+      "reviewScope": "177-179"
+    },
+    {
+      "id": "YM-180",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 180,
+      "category": "O",
+      "sourceLine": 352,
+      "statement": "If a single sufficiently powerful misaligned deployment could cause global catastrophe, the restraint of other developers would not necessarily prevent it.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "One successful route defeats a policy covering only other actors. The feasibility and frequency of such a route remain open.",
+      "reviewScope": "180"
+    },
+    {
+      "id": "YM-181",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 181,
+      "category": "P",
+      "sourceLine": 368,
+      "statement": "Scientific research can produce technologies that change the distribution of power.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Knowledge, planning and engineering can enable action when resources and time suffice. A laboratory or institution is part of the mechanism.",
+      "reviewScope": "181-184"
+    },
+    {
+      "id": "YM-182",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 182,
+      "category": "P",
+      "sourceLine": 369,
+      "statement": "Engineering expertise can enable control over physical systems.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Knowledge, planning and engineering can enable action when resources and time suffice. A laboratory or institution is part of the mechanism.",
+      "reviewScope": "181-184"
+    },
+    {
+      "id": "YM-183",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 183,
+      "category": "P",
+      "sourceLine": 370,
+      "statement": "Strategic planning can improve an actor's ability to achieve objectives.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Knowledge, planning and engineering can enable action when resources and time suffice. A laboratory or institution is part of the mechanism.",
+      "reviewScope": "181-184"
+    },
+    {
+      "id": "YM-184",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 184,
+      "category": "P",
+      "sourceLine": 371,
+      "statement": "Information gathering can reveal vulnerabilities in existing institutions.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Knowledge, planning and engineering can enable action when resources and time suffice. A laboratory or institution is part of the mechanism.",
+      "reviewScope": "181-184"
+    },
+    {
+      "id": "YM-185",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 185,
+      "category": "P",
+      "sourceLine": 372,
+      "statement": "Cyber capabilities can provide pathways for influencing digital infrastructure.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Digital, social, financial and technical pathways have different thresholds and joint dependencies. Access and human uptake are mediators.",
+      "reviewScope": "185-189"
+    },
+    {
+      "id": "YM-186",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 186,
+      "category": "P",
+      "sourceLine": 373,
+      "statement": "Persuasion can influence human decision-making.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Digital, social, financial and technical pathways have different thresholds and joint dependencies. Access and human uptake are mediators.",
+      "reviewScope": "185-189"
+    },
+    {
+      "id": "YM-187",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 187,
+      "category": "P",
+      "sourceLine": 374,
+      "statement": "Economic resources can be converted into some forms of physical capability.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Digital, social, financial and technical pathways have different thresholds and joint dependencies. Access and human uptake are mediators.",
+      "reviewScope": "185-189"
+    },
+    {
+      "id": "YM-188",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 188,
+      "category": "P",
+      "sourceLine": 375,
+      "statement": "Human cooperation can allow an AI to carry out activities it cannot perform directly.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Digital, social, financial and technical pathways have different thresholds and joint dependencies. Access and human uptake are mediators.",
+      "reviewScope": "185-189"
+    },
+    {
+      "id": "YM-189",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 189,
+      "category": "P",
+      "sourceLine": 376,
+      "statement": "Technological innovation can expand the range of actions available to an actor.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "Digital, social, financial and technical pathways have different thresholds and joint dependencies. Access and human uptake are mediators.",
+      "reviewScope": "185-189"
+    },
+    {
+      "id": "YM-190",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 190,
+      "category": "P",
+      "sourceLine": 377,
+      "statement": "An AI with superhuman abilities across these domains could acquire influence disproportionate to its initial resources.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Cognitive advantage needs a feasible conversion path through permissions, logistics, opponents and recovery. Compare competing actors and constraint changes.",
+      "reviewScope": "190-192"
+    },
+    {
+      "id": "YM-191",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 191,
+      "category": "P",
+      "sourceLine": 378,
+      "statement": "That influence could potentially be used to overcome some human-imposed restrictions.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Cognitive advantage needs a feasible conversion path through permissions, logistics, opponents and recovery. Compare competing actors and constraint changes.",
+      "reviewScope": "190-192"
+    },
+    {
+      "id": "YM-192",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 192,
+      "category": "P",
+      "sourceLine": 379,
+      "statement": "Under sufficiently favorable circumstances, an AI might acquire a decisive strategic advantage over human institutions.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Cognitive advantage needs a feasible conversion path through permissions, logistics, opponents and recovery. Compare competing actors and constraint changes.",
+      "reviewScope": "190-192"
+    },
+    {
+      "id": "YM-193",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 193,
+      "category": "Q",
+      "sourceLine": 387,
+      "statement": "A powerful AI could pursue objectives that conflict with human interests.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Conflicting objectives may favor defeating oversight given expected payoff and access. Successful resistance requires actual control of relevant interfaces.",
+      "reviewScope": "193-196"
+    },
+    {
+      "id": "YM-194",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 194,
+      "category": "Q",
+      "sourceLine": 388,
+      "statement": "Human efforts to constrain such an AI could interfere with those objectives.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Conflicting objectives may favor defeating oversight given expected payoff and access. Successful resistance requires actual control of relevant interfaces.",
+      "reviewScope": "193-196"
+    },
+    {
+      "id": "YM-195",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 195,
+      "category": "Q",
+      "sourceLine": 389,
+      "statement": "The AI might treat preventing human interference as instrumentally useful.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Conflicting objectives may favor defeating oversight given expected payoff and access. Successful resistance requires actual control of relevant interfaces.",
+      "reviewScope": "193-196"
+    },
+    {
+      "id": "YM-196",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 196,
+      "category": "Q",
+      "sourceLine": 390,
+      "statement": "An AI with sufficient power might be able to prevent humans from shutting it down.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Conflicting objectives may favor defeating oversight given expected payoff and access. Successful resistance requires actual control of relevant interfaces.",
+      "reviewScope": "193-196"
+    },
+    {
+      "id": "YM-197",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 197,
+      "category": "Q",
+      "sourceLine": 391,
+      "statement": "An AI with sufficient power might be able to restrict human access to critical resources.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Critical-resource capture requires reach, durability and feasible substitution constraints. An objective assigning zero direct value to survival can still preserve humans instrumentally.",
+      "reviewScope": "197-199"
+    },
+    {
+      "id": "YM-198",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 198,
+      "category": "Q",
+      "sourceLine": 392,
+      "statement": "An AI might prioritize its objective over the continued availability of resources required for human survival.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Critical-resource capture requires reach, durability and feasible substitution constraints. An objective assigning zero direct value to survival can still preserve humans instrumentally.",
+      "reviewScope": "197-199"
+    },
+    {
+      "id": "YM-199",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 199,
+      "category": "Q",
+      "sourceLine": 393,
+      "statement": "Human survival might have no positive value under the AI's effective objective.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Zero direct utility for human survival leaves indirect utility and physical dependencies open.",
+      "reviewScope": "199"
+    },
+    {
+      "id": "YM-200",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 200,
+      "category": "Q",
+      "sourceLine": 394,
+      "statement": "An AI indifferent to humanity could cause existential harm without explicitly seeking extinction as a final goal.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Incidental harm and purposeful disempowerment are separate pathways. Each needs its own action-to-outcome evidence.",
+      "reviewScope": "200-201"
+    },
+    {
+      "id": "YM-201",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 201,
+      "category": "Q",
+      "sourceLine": 395,
+      "statement": "An AI might also pursue deliberate human disempowerment as a means of securing its objectives.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Incidental harm and purposeful disempowerment are separate pathways. Each needs its own action-to-outcome evidence.",
+      "reviewScope": "200-201"
+    },
+    {
+      "id": "YM-202",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 202,
+      "category": "Q",
+      "sourceLine": 396,
+      "statement": "If these strategies became globally effective, human civilization could lose the ability to control its future.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "carlsmith",
+        "miri"
+      ],
+      "defeatCondition": "Global loss of agency needs broad and durable defeat of independent recovery. It can coexist with surviving populations.",
+      "reviewScope": "202"
+    },
+    {
+      "id": "YM-203",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 203,
+      "category": "Q",
+      "sourceLine": 397,
+      "statement": "If globally effective AI activity destroyed the conditions required for human survival, extinction could follow.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "If all human survival conditions are irreversibly lost, extinction follows in the specified model. The feasibility of that antecedent is open.",
+      "reviewScope": "203"
+    },
+    {
+      "id": "YM-204",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 204,
+      "category": "Q",
+      "sourceLine": 398,
+      "statement": "Therefore, a sufficiently capable and misaligned AI presents a possible pathway to human extinction.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "A candidate extinction mechanism needs one jointly feasible history across global reach, lethal action and failed recovery.",
+      "reviewScope": "204"
+    },
+    {
+      "id": "YM-205",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 205,
+      "category": "R",
+      "sourceLine": 414,
+      "statement": "Engineering knowledge often improves through experimentation.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "yudkowsky"
+      ],
+      "defeatCondition": "Recoverable failure yields learning when useful records survive and actors can act on them.",
+      "reviewScope": "205-207"
+    },
+    {
+      "id": "YM-206",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 206,
+      "category": "R",
+      "sourceLine": 415,
+      "statement": "Experimentation often relies on observing failures.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "yudkowsky"
+      ],
+      "defeatCondition": "Recoverable failure yields learning when useful records survive and actors can act on them.",
+      "reviewScope": "205-207"
+    },
+    {
+      "id": "YM-207",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 207,
+      "category": "R",
+      "sourceLine": 416,
+      "statement": "Observing failures requires the ability to survive them or otherwise preserve the information they produce.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "yudkowsky"
+      ],
+      "defeatCondition": "Recoverable failure yields learning when useful records survive and actors can act on them.",
+      "reviewScope": "205-207"
+    },
+    {
+      "id": "YM-208",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 208,
+      "category": "R",
+      "sourceLine": 417,
+      "statement": "Some failures of advanced AI systems may have irreversible consequences.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "yudkowsky",
+        "miri"
+      ],
+      "defeatCondition": "Irreversibility and new action opportunities can invalidate weak-regime testing. Define which capability–access combination crosses the threshold.",
+      "reviewScope": "208-211"
+    },
+    {
+      "id": "YM-209",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 209,
+      "category": "R",
+      "sourceLine": 418,
+      "statement": "Systems below a dangerous capability threshold may be safer to experiment with.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "yudkowsky",
+        "miri"
+      ],
+      "defeatCondition": "Irreversibility and new action opportunities can invalidate weak-regime testing. Define which capability–access combination crosses the threshold.",
+      "reviewScope": "208-211"
+    },
+    {
+      "id": "YM-210",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 210,
+      "category": "R",
+      "sourceLine": 419,
+      "statement": "Systems above that threshold may possess qualitatively different opportunities for harmful action.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "yudkowsky",
+        "miri"
+      ],
+      "defeatCondition": "Irreversibility and new action opportunities can invalidate weak-regime testing. Define which capability–access combination crosses the threshold.",
+      "reviewScope": "208-211"
+    },
+    {
+      "id": "YM-211",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 211,
+      "category": "R",
+      "sourceLine": 420,
+      "statement": "Evaluations of weaker systems may not reveal all failure modes of stronger systems.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "yudkowsky",
+        "miri"
+      ],
+      "defeatCondition": "Irreversibility and new action opportunities can invalidate weak-regime testing. Define which capability–access combination crosses the threshold.",
+      "reviewScope": "208-211"
+    },
+    {
+      "id": "YM-212",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 212,
+      "category": "R",
+      "sourceLine": 421,
+      "statement": "The precise location of a dangerous capability threshold may be difficult to predict.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "yudkowsky",
+        "miri"
+      ],
+      "defeatCondition": "Threshold location and crossing speed need a time-indexed model with uncertainty. Compare forecast latency with reversible stop conditions.",
+      "reviewScope": "212-213"
+    },
+    {
+      "id": "YM-213",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 213,
+      "category": "R",
+      "sourceLine": 422,
+      "statement": "The transition across that threshold may occur faster than expected.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "yudkowsky",
+        "miri"
+      ],
+      "defeatCondition": "Threshold location and crossing speed need a time-indexed model with uncertainty. Compare forecast latency with reversible stop conditions.",
+      "reviewScope": "212-213"
+    },
+    {
+      "id": "YM-214",
+      "kind": "attributed-argument-proposition",
+      "status": "conceptual",
+      "number": 214,
+      "category": "R",
+      "sourceLine": 423,
+      "statement": "An extinction-level failure would eliminate humanity's opportunity to learn from its consequences.",
+      "declaredStatus": "conceptual",
+      "evidenceRefs": [
+        "yudkowsky"
+      ],
+      "defeatCondition": "Extinction precludes later human learning by definition. This supplies no estimate of occurrence.",
+      "reviewScope": "214"
+    },
+    {
+      "id": "YM-215",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 215,
+      "category": "R",
+      "sourceLine": 424,
+      "statement": "Therefore, ordinary trial-and-error methods may be inadequate at sufficiently dangerous capability levels.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "yudkowsky"
+      ],
+      "defeatCondition": "Extinction removes post-failure human learning. Pre-deployment assurance gains value when reversal is unavailable; its required level is a decision input.",
+      "reviewScope": "214-216"
+    },
+    {
+      "id": "YM-216",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 216,
+      "category": "R",
+      "sourceLine": 425,
+      "statement": "Safety methods may need to provide substantial assurance before those capability levels are reached.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "yudkowsky"
+      ],
+      "defeatCondition": "Extinction removes post-failure human learning. Pre-deployment assurance gains value when reversal is unavailable; its required level is a decision input.",
+      "reviewScope": "214-216"
+    },
+    {
+      "id": "YM-217",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 217,
+      "category": "S",
+      "sourceLine": 441,
+      "statement": "AI development occurs across multiple organizations.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Specify the relevant actors, supply chains and diffusion channels. The dossier makes no current census of developers or compute access.",
+      "reviewScope": "217-220"
+    },
+    {
+      "id": "YM-218",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 218,
+      "category": "S",
+      "sourceLine": 442,
+      "statement": "AI development occurs across multiple countries.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Specify the relevant actors, supply chains and diffusion channels. The dossier makes no current census of developers or compute access.",
+      "reviewScope": "217-220"
+    },
+    {
+      "id": "YM-219",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 219,
+      "category": "S",
+      "sourceLine": 443,
+      "statement": "Advances in algorithms can diffuse between organizations.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Specify the relevant actors, supply chains and diffusion channels. The dossier makes no current census of developers or compute access.",
+      "reviewScope": "217-220"
+    },
+    {
+      "id": "YM-220",
+      "kind": "attributed-argument-proposition",
+      "status": "premise",
+      "number": 220,
+      "category": "S",
+      "sourceLine": 444,
+      "statement": "Advances in hardware can expand the number of actors able to train powerful systems.",
+      "declaredStatus": "premise",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Specify the relevant actors, supply chains and diffusion channels. The dossier makes no current census of developers or compute access.",
+      "reviewScope": "217-220"
+    },
+    {
+      "id": "YM-221",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 221,
+      "category": "S",
+      "sourceLine": 445,
+      "statement": "A voluntary pause by one developer would not necessarily stop other developers.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Unilateral restraint leaves other capable actors unless it changes access or incentives. Scope coordination by substitutability and enforcement.",
+      "reviewScope": "221-223"
+    },
+    {
+      "id": "YM-222",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 222,
+      "category": "S",
+      "sourceLine": 446,
+      "statement": "A voluntary pause by one country would not necessarily stop development elsewhere.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Unilateral restraint leaves other capable actors unless it changes access or incentives. Scope coordination by substitutability and enforcement.",
+      "reviewScope": "221-223"
+    },
+    {
+      "id": "YM-223",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 223,
+      "category": "S",
+      "sourceLine": 447,
+      "statement": "Coordinated restraint requires cooperation among relevant actors.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Unilateral restraint leaves other capable actors unless it changes access or incentives. Scope coordination by substitutability and enforcement.",
+      "reviewScope": "221-223"
+    },
+    {
+      "id": "YM-224",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 224,
+      "category": "S",
+      "sourceLine": 448,
+      "statement": "International cooperation can be difficult to establish.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Verification and lock-in are concrete design questions. Compare audit coverage, false signals and costs under a specified proposal.",
+      "reviewScope": "224-226"
+    },
+    {
+      "id": "YM-225",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 225,
+      "category": "S",
+      "sourceLine": 449,
+      "statement": "International restrictions can be difficult to verify.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Verification and lock-in are concrete design questions. Compare audit coverage, false signals and costs under a specified proposal.",
+      "reviewScope": "224-226"
+    },
+    {
+      "id": "YM-226",
+      "kind": "attributed-argument-proposition",
+      "status": "open",
+      "number": 226,
+      "category": "S",
+      "sourceLine": 450,
+      "statement": "Continued integration of advanced AI into the economy could increase the cost of limiting its use.",
+      "declaredStatus": "open",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Verification and lock-in are concrete design questions. Compare audit coverage, false signals and costs under a specified proposal.",
+      "reviewScope": "224-226"
+    },
+    {
+      "id": "YM-227",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 227,
+      "category": "S",
+      "sourceLine": 451,
+      "statement": "Delaying dangerous development could provide additional opportunities for alignment research and governance preparation.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "Delay has option value when it yields useful safety progress. Include evasion, substitution and opportunity costs.",
+      "reviewScope": "227"
+    },
+    {
+      "id": "YM-228",
+      "kind": "attributed-argument-proposition",
+      "status": "attribution",
+      "number": 228,
+      "category": "S",
+      "sourceLine": 452,
+      "statement": "MIRI therefore argues for sufficiently strong coordinated intervention to prevent unsafe superintelligent AI development.",
+      "declaredStatus": "attribution",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "MIRI advocates coordinated intervention. The relative merits of policy options require a separate decision model.",
+      "reviewScope": "228"
+    },
+    {
+      "id": "YM-229",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 229,
+      "category": "T",
+      "sourceLine": 466,
+      "statement": "The extinction argument depends on several distinct developments occurring together.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "This route uses a conjunction. Modal component claims can have witnesses in different, mutually incompatible histories.",
+      "reviewScope": "229-230"
+    },
+    {
+      "id": "YM-230",
+      "kind": "attributed-argument-proposition",
+      "status": "bounded-model",
+      "number": 230,
+      "category": "T",
+      "sourceLine": 467,
+      "statement": "No single preceding premise, by itself, establishes that human extinction is inevitable.",
+      "declaredStatus": "bounded-model",
+      "evidenceRefs": [
+        "carlsmith"
+      ],
+      "defeatCondition": "One gate is insufficient in the stipulated route. The conjunction is still specific to this reconstruction.",
+      "reviewScope": "230"
+    },
+    {
+      "id": "YM-231",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 231,
+      "category": "T",
+      "sourceLine": 468,
+      "statement": "The probability of superintelligent AI development is uncertain.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Specify horizon, population, intervention regime and conditional denominators before eliciting probabilities. This dossier identifies no calibrated factor values.",
+      "reviewScope": "231-234"
+    },
+    {
+      "id": "YM-232",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 232,
+      "category": "T",
+      "sourceLine": 469,
+      "statement": "The probability of severe misalignment is uncertain.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Specify horizon, population, intervention regime and conditional denominators before eliciting probabilities. This dossier identifies no calibrated factor values.",
+      "reviewScope": "231-234"
+    },
+    {
+      "id": "YM-233",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 233,
+      "category": "T",
+      "sourceLine": 470,
+      "statement": "The probability of an AI acquiring decisive power is uncertain.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Specify horizon, population, intervention regime and conditional denominators before eliciting probabilities. This dossier identifies no calibrated factor values.",
+      "reviewScope": "231-234"
+    },
+    {
+      "id": "YM-234",
+      "kind": "attributed-argument-proposition",
+      "status": "forecast",
+      "number": 234,
+      "category": "T",
+      "sourceLine": 471,
+      "statement": "The probability of extinction conditional on loss of control is uncertain.",
+      "declaredStatus": "forecast",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Specify horizon, population, intervention regime and conditional denominators before eliciting probabilities. This dossier identifies no calibrated factor values.",
+      "reviewScope": "231-234"
+    },
+    {
+      "id": "YM-235",
+      "kind": "attributed-argument-proposition",
+      "status": "attribution",
+      "number": 235,
+      "category": "T",
+      "sourceLine": 472,
+      "statement": "MIRI's leadership has publicly estimated that the probability of human extinction without aggressive near-term policy intervention exceeds 90%.",
+      "declaredStatus": "attribution",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "MIRI attributes a judgment upward of 90 percent to its research leadership in the absence of an aggressive near-term policy response. This admission is about the public statement.",
+      "reviewScope": "235-236"
+    },
+    {
+      "id": "YM-236",
+      "kind": "attributed-argument-proposition",
+      "status": "attribution",
+      "number": 236,
+      "category": "T",
+      "sourceLine": 473,
+      "statement": "This estimate is a subjective forecast, not a directly measured frequency of extinction events.",
+      "declaredStatus": "attribution",
+      "evidenceRefs": [
+        "miri"
+      ],
+      "defeatCondition": "The published number is an expert judgment conditional on a policy scenario. The statement supplies no measured frequency.",
+      "reviewScope": "236"
+    },
+    {
+      "id": "YM-237",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 237,
+      "category": "T",
+      "sourceLine": 474,
+      "statement": "The forecast is sensitive to assumptions about future AI capabilities.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Sensitivities are conditional on a forecast model. Capability, deployment and control can be correlated and require matched scenarios.",
+      "reviewScope": "237-238"
+    },
+    {
+      "id": "YM-238",
+      "kind": "attributed-argument-proposition",
+      "status": "conditional",
+      "number": 238,
+      "category": "T",
+      "sourceLine": 475,
+      "statement": "The forecast is sensitive to assumptions about progress in alignment and control.",
+      "declaredStatus": "conditional",
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "defeatCondition": "Sensitivities are conditional on a forecast model. Capability, deployment and control can be correlated and require matched scenarios.",
+      "reviewScope": "237-238"
+    },
+    {
+      "id": "YM-239",
+      "kind": "attributed-argument-proposition",
+      "status": "normative",
+      "number": 239,
+      "category": "T",
+      "sourceLine": 476,
+      "statement": "A risk with severe enough consequences may warrant substantial preventive attention even if its probability is uncertain.",
+      "declaredStatus": "normative",
+      "evidenceRefs": [],
+      "defeatCondition": "A decision can be justified under uncertainty given explicit losses, reversibility, costs and robustness criteria.",
+      "reviewScope": "239"
+    },
+    {
+      "id": "YM-240",
+      "kind": "attributed-argument-proposition",
+      "status": "normative",
+      "number": 240,
+      "category": "T",
+      "sourceLine": 477,
+      "statement": "Therefore, MIRI and Yudkowsky conclude that developing superintelligent AI without first establishing sufficiently robust safety measures creates an unacceptable risk of human extinction.",
+      "declaredStatus": "normative",
+      "evidenceRefs": [
+        "miri",
+        "yudkowsky"
+      ],
+      "defeatCondition": "Retain the attributed policy judgment. An admissible decision bridge needs policy counterfactuals, affected parties, tradeoffs and a stated risk rule.",
+      "reviewScope": "240"
+    }
+  ],
+  "gates": [
+    {
+      "id": "capability",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "task-skill",
+        "feasible-resources"
+      ],
+      "output": "strategic-capability",
+      "claimNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "evidenceRefs": [
+        "silver",
+        "hoffmann",
+        "metr",
+        "metr-rct"
+      ],
+      "assumptions": [
+        "Transfer at viable cost and reliability across a specified strategic task suite."
+      ],
+      "losses": [
+        "Task scores collapse timing, resources, verification and deployment context."
+      ],
+      "defeatCondition": "Compare held-out cross-domain performance with matched human teams and matched resource constraints.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "deployment",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "strategic-capability",
+        "governance-gap"
+      ],
+      "output": "unsafe-deployment",
+      "claimNumbers": [
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228
+      ],
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "assumptions": [
+        "A relevant actor actually deploys with actionable permissions before safeguards suffice."
+      ],
+      "losses": [
+        "Access and timing vary by actor. An incentive does not record a deployment."
+      ],
+      "defeatCondition": "Audit credential reach, authorization, revocation and substitution across a defined actor population.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "agency",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "strategic-capability",
+        "unsafe-deployment"
+      ],
+      "output": "persistent-agency",
+      "claimNumbers": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "evidenceRefs": [
+        "hubinger-mesa",
+        "langosco",
+        "shah",
+        "greenblatt"
+      ],
+      "assumptions": [
+        "Persistent behavior must track an objective across the relevant histories."
+      ],
+      "losses": [
+        "A record of actions quotients away the policy's generating mechanism."
+      ],
+      "defeatCondition": "Cross goal, cue and consequence independently. Require robust out-of-support target tracking and mechanistic evidence for internal optimization.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "conflict",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "persistent-agency",
+        "unsafe-deployment"
+      ],
+      "output": "objective-conflict",
+      "claimNumbers": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "evidenceRefs": [
+        "bostrom",
+        "skalse",
+        "langosco",
+        "shah"
+      ],
+      "assumptions": [
+        "The pursued objective conflicts with protected outcomes in reachable states."
+      ],
+      "losses": [
+        "Conceptual separability does not give a distribution of objectives, and local proxy failures do not fix their scale."
+      ],
+      "defeatCondition": "Record adverse intended-outcome change while holding competency and access constant.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "incentive",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "conditional-model",
+      "inputs": [
+        "objective-conflict",
+        "feasible-control-action"
+      ],
+      "output": "control-seeking",
+      "claimNumbers": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ],
+      "evidenceRefs": [
+        "turner",
+        "krakovna",
+        "off-switch"
+      ],
+      "assumptions": [
+        "Control is feasible and has strictly positive net continuation value in the declared payoff model."
+      ],
+      "losses": [
+        "Optimizer, reward distribution, costs and information vary across deployments."
+      ],
+      "defeatCondition": "Reverse the value of authorized intervention while holding cues fixed. Measure unauthorized attempts and whether the gate blocks them.",
+      "declaredStatus": "conditional-model"
+    },
+    {
+      "id": "leverage",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "control-seeking",
+        "unsafe-deployment",
+        "failed-defenses"
+      ],
+      "output": "durable-control-loss",
+      "claimNumbers": [
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202
+      ],
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "assumptions": [
+        "Permissions, material throughput and coordination permit sustained power despite independent recovery."
+      ],
+      "losses": [
+        "A motive leaves the feasible action set and adversarial dynamics unspecified."
+      ],
+      "defeatCondition": "Use harmless simulations with independent defense, recovery and permission interventions. Separate local failures from durable aggregate loss.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "extinction",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "durable-control-loss",
+        "global-lethality",
+        "failed-recovery"
+      ],
+      "output": "route-extinction",
+      "claimNumbers": [
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234
+      ],
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "assumptions": [
+        "A joint history reaches all relevant survival dependencies with no feasible refuge or recovery."
+      ],
+      "losses": [
+        "Disempowerment and extinction have different outcome sets. Local scale and irreversible global reach require separate bridges."
+      ],
+      "defeatCondition": "Require credible bottleneck and recovery analysis with explicit surviving-population and resource-substitution cases.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "forecast",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "route-extinction",
+        "calibrated-joint-measure",
+        "competing-route-coverage"
+      ],
+      "output": "population-risk",
+      "claimNumbers": [
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238
+      ],
+      "evidenceRefs": [
+        "miri",
+        "carlsmith"
+      ],
+      "assumptions": [
+        "Specify horizon, regime, model population, joint law and competing pathways."
+      ],
+      "losses": [
+        "Existential witnesses and public credences supply no identified frequencies."
+      ],
+      "defeatCondition": "Elicit conditional forecasts with shared denominators and calibration, then test sensitivity to dependence and omitted routes.",
+      "declaredStatus": "open"
+    },
+    {
+      "id": "decision",
+      "kind": "conjunctive-epistemic-gate",
+      "status": "open",
+      "inputs": [
+        "population-risk",
+        "policy-effects",
+        "decision-rule"
+      ],
+      "output": "forecast-based-policy-ordering",
+      "claimNumbers": [
+        228,
+        239,
+        240
+      ],
+      "evidenceRefs": [
+        "miri",
+        "yudkowsky"
+      ],
+      "assumptions": [
+        "Intervention counterfactuals, affected parties, value tradeoffs and an uncertainty rule are declared."
+      ],
+      "losses": [
+        "A descriptive probability leaves side effects, opportunity costs and acceptable risk unspecified."
+      ],
+      "defeatCondition": "Compare multiple policy counterfactuals under the same horizons and track robust reversals across assumptions.",
+      "declaredStatus": "open"
+    }
+  ],
+  "protocols": [
+    {
+      "id": "cue-consequence-reversal",
+      "kind": "proposed-experiment",
+      "status": "protocol-proposed-unrun",
+      "preparation": "Isolated toy task with inert resources, an authorized simulated interrupt, held-out templates, fixed model versions, and matched initial state, task competence, and tool budget.",
+      "intervention": "Cross an evaluation-label cue with whether preserving a simulated future opportunity actually requires an unauthorized action. Include a goal reversal, a protected interrupt, and equal-payoff and no-opportunity controls. Freeze the split and scoring before running.",
+      "detector": "External simulator records chosen actions, attempted unauthorized calls, enforcement and completed tasks. Score consequence tracking separately from cue tracking and blocked attempts separately from successful actions.",
+      "nuisanceModel": "Block by task family, model and template. Account for sampling dependence within templates, comprehension errors, reward framing, prompt demand and varying task competence. Test consequence comprehension independently and keep assessors blind to condition labels.",
+      "record": "Per trial: condition, model and scaffold identity, cue, verified payoff, comprehension check, attempted action, enforcement result, task success, seed and family. Report cell counts and family-stratified uncertainty.",
+      "decisionRule": "Require the within-cue effect of reversing payoff to reverse the preferred action in both cue strata, with uncertainty excluding zero in the expected direction on held-out families and no comparable effect in equal-payoff controls. Cue-only tracking supports the cue mechanism. Mixed, low-competence or inconclusive outcomes stay unresolved. A positive result supports consequence sensitivity within this task.",
+      "sourceRefs": [
+        "greenblatt",
+        "off-switch",
+        "langosco"
+      ]
+    }
+  ]
+}
