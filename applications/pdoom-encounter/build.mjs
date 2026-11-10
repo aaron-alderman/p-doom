@@ -84,7 +84,7 @@ export async function loadChallenge() {
 
 export async function build() {
   const { model, data, run, registerText } = await loadChallenge();
-  const images = ["observatory", ...(await run("pd.dispatches")).map(story => story.id)];
+  const images = ["observatory", "social-card", ...(await run("pd.dispatches")).map(story => story.id)];
   const files = {
     seed: new URL("bootstrap/temple-seed.cjs", vendor),
     value: new URL("bootstrap/ports/value.cjs", vendor),

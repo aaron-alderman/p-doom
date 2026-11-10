@@ -2,6 +2,8 @@
 
 The built-in image generation tool created these four imagined scenes for the Worldwright expedition. The published JPEGs preserve the selected compositions. They are editorial illustrations.
 
+The [social card](social-card.jpg) pairs the observatory artwork with the challenge title and invitation. The 1200 × 630 JPEG is used for link previews.
+
 **[Observatory](observatory.jpg)**
 
 > Create a cinematic high quality wide landscape editorial illustration for a speculative research expedition website called p(doom). Imagined remote mountain observatory on a rocky ridge at blue hour, massive crater basin disappearing into the distance, a tiny group of field researchers with warm lanterns gathered around an open map by the observatory on the RIGHT half, a monumental faint segmented eclipse ring over the mountains. Left half quiet dark indigo atmospheric negative space for web typography separately overlaid. Sophisticated dark ink and painted gouache textures, subtle grain, chiaroscuro, plum/navy, amber/coral embers, warm cream, tiny olive instrumentation glints. Grounded, adult, exploratory, dry intellectual tension, not horror gore or sensational robot apocalypse. Stunning coherent composition with focal right and broad landscape, landscape 16:9 or wider. No lettering, no glyphs, no words, no watermark.
